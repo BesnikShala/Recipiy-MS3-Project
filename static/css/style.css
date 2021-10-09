@@ -11,3 +11,13 @@ html, body {
 .text-shadow {
     text-shadow: 2px 2px 2px rgba(rgb(34, 6, 6, 0.5), green, blue, alpha);
 }
+
+nav ul a {
+    color: black;
+    letter-spacing: 3px;
+}
+
+nav .brand-logo {
+    color: black;
+    letter-spacing: 5px;
+}
