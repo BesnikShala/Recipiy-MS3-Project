@@ -2,7 +2,6 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <h2>Extending base template</h2>
 
     {% for recipe in recipes %}
         {{ recipe.recipe_name }}<br>
@@ -12,4 +11,5 @@
         {{ recipe.recipe_time }}<br>
         {{ recipe.recipe_tools }}<br>
     {% endfor %}
+    
 {% endblock %}
