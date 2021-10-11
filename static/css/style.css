@@ -12,6 +12,8 @@ html, body {
     text-shadow: 2px 2px 2px rgba(rgb(34, 6, 6, 0.5), green, blue, alpha);
 }
 
+/* Navbar */
+
 nav ul a {
     color: black;
     letter-spacing: 3px;
@@ -22,6 +24,8 @@ nav .brand-logo {
     letter-spacing: 5px;
 }
 
+/* Title styling */
+
 .letter-space {
     letter-spacing: 2px;
 }
@@ -31,9 +35,15 @@ nav .brand-logo {
     color: orangered;
 }
 
+/* flash styling */
+
 .flashes {
     background-color: orangered;
     color: white;
     letter-spacing: 1px;
     text-transform: uppercase;
+}
+
+.margin-top {
+    margin-top: 10px;
 }
