@@ -40,6 +40,20 @@
           </ul>
     </header>
 
+    <section>
+        <!-- flash messages -->
+        {% with flashes = get_flashed_messages() %}
+            {% if flashes %}
+                {% for flash in flashes %}
+                    <div class="row flashes">
+                        <h4 class="center-align">{{ flash }}</h4>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+    </section>
+
     
     {% block content %}
         <!-- Modal Trigger -->
