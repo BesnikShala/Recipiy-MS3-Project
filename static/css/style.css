@@ -21,3 +21,12 @@ nav .brand-logo {
     color: black;
     letter-spacing: 5px;
 }
+
+.letter-space {
+    letter-spacing: 2px;
+}
+
+.register {
+    background-color: #5c5252;
+    color: orangered;
+}

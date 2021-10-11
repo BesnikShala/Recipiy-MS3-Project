@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="row">
+        <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('register') }}">
+            <div class="card-panel">
+                <!-- Username section -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input class="validate" id="username" name="username" type="text">
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input class="validate" id="confirm-user" name="confirm-user" type="text">
+                        <label for="confirm-user">Confirm Username</label>
+                    </div>
+                </div>
+                <!-- Password section -->
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input class="validate" id="password" name="password" type="text">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <input class="validate" id="confirm-pass" name="confirm-pass" type="text">
+                        <label for="confirm-pass">Confirm Password</label>
+                    </div>
+                </div>
+                <!-- register button -->
+                <div class="row">
+                    <button class="col s12 btn-large grey darken-4 text-shadow letter-space register">
+                        Register
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+    <!-- <div class="promotion">
+        Promotional 15% off on cooking utensils
+    </div>
+     -->
+{% endblock %}

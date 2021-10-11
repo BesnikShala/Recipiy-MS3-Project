@@ -24,7 +24,7 @@
                       <li><a href="#">Add Recipe</a></li>
                       <li><a href="#">Log In</a></li>
                       <li><a href="#">Log Out</a></li>
-                      <li><a href="#">Register</a></li>
+                      <li><a class="modal-trigger" href="{{ url_for('register') }}">Register</a></li>
                       
                   </ul>
               </div>
@@ -36,12 +36,25 @@
               <li><a href="#">Add Recipe</a></li>
               <li><a href="#">Log In</a></li>
               <li><a href="#">Log Out</a></li>
-              <li><a href="#">Register</a></li>
+              <li><a class="modal-trigger" href="{{ url_for('register') }}">Register</a></li>
           </ul>
     </header>
 
     
     {% block content %}
+        <!-- Modal Trigger -->
+        <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h4>Modal Header</h4>
+                <p>A bunch of text</p>
+            </div>
+            <div class="modal-footer">
+                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+            </div>
+        </div>
     {% endblock %}
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
