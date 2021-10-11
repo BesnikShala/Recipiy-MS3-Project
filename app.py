@@ -51,7 +51,7 @@ def register():
 
         session["user"] = request.form.get("username").lower()
         flash("You Have Successfully Registered")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(url_for("my_recipes", username=session["user"]))
 
     return render_template("register.html")
 
@@ -69,7 +69,7 @@ def login():
                     flash("Welcome, {}".format(
                         request.form.get("username")))
                     return redirect(url_for(
-                        "profile", username=session["user"]))
+                        "my_recipes", username=session["user"]))
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
@@ -85,7 +85,19 @@ def login():
 def my_recipes(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return render_template("my_recipes.html", username=username)
+
+    if session["user"]:
+        return render_template("my_recipes.html", username=username)
+    
+    return redirect(url_for("login"))
+
+
+@app.route("/logout")
+def logout():
+    flash("You have logged out")
+    session.pop("user")
+    return redirect(url_for("login"))
+
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),

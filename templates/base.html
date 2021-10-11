@@ -20,11 +20,14 @@
                   <a href="#" data-target="mobile-demo" class="sidenav-trigger right"><i class="fas fa-bars"></i></a>
                   <ul class="right hide-on-med-and-down">
                       <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
-                      <li><a href="{{ url_for('my_recipes', username=session['user']) }}">My Recipes</a></li>
-                      <li><a href="#">Add Recipe</a></li>
-                      <li><a href="{{ url_for('login') }}">Log In</a></li>
-                      <li><a href="#">Log Out</a></li>
-                      <li><a class="modal-trigger" href="{{ url_for('register') }}">Register</a></li>
+                      {% if session.user %}
+                        <li><a href="{{ url_for('my_recipes', username=session['user']) }}">My Recipes</a></li>
+                        <li><a href="#">Add Recipe</a></li>
+                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                      {% else %}
+                        <li><a href="{{ url_for('login') }}">Log In</a></li>
+                        <li><a class="modal-trigger" href="{{ url_for('register') }}">Register</a></li>
+                      {% endif %}
                       
                   </ul>
               </div>
@@ -32,22 +35,25 @@
         <!-- mobile navbar -->
           <ul class="sidenav" id="mobile-demo">
               <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
-              <li><a href="{{ url_for('my_recipes', username=session['user']) }}">My Recipes</a></li>
-              <li><a href="#">Add Recipe</a></li>
-              <li><a href="{{ url_for('login') }}">Log In</a></li>
-              <li><a href="#">Log Out</a></li>
-              <li><a class="modal-trigger" href="{{ url_for('register') }}">Register</a></li>
+              {% if session.user %}
+                <li><a href="{{ url_for('my_recipes', username=session['user']) }}">My Recipes</a></li>
+                <li><a href="#">Add Recipe</a></li>
+                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+              {% else %}
+                <li><a href="{{ url_for('login') }}">Log In</a></li>
+                <li><a class="modal-trigger" href="{{ url_for('register') }}">Register</a></li>
+              {% endif %}
           </ul>
     </header>
 
     <section>
         <!-- flash messages -->
         <div class="row margin-top">
-            <div class="col m6 offset-m3">
+            <div class="col s12 m6 offset-m3">
                 {% with flashes = get_flashed_messages() %}
                     {% if flashes %}
                         {% for flash in flashes %}
-                            <div class="row flashes">
+                            <div class="row flashes center-align">
                                 <h5 class="col m6 offset-m3 center-align">{{ flash }}</h5>
                             </div>
                         {% endfor %}
