@@ -2,14 +2,13 @@
 {% block content %}
 
     <section class="center-align">
-        <h3>Register</h3>
-        <P>Create your username and password to be able to log in and use the sites extra features such as add your own recipes or save 
-            recipes to your own profile.<br>
-            You can also take advantage of a 15% discount on our recommended cooking products</P>
+        <h3>Log into Recipiy</h3>
+        <P>Please enter your created Username and Password to log in and to fully use Recipiy<br>
+            Don't forget to check out our new cooking products</P>
     </section>
 
     <div class="row">
-        <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('register') }}">
+        <form class="col s12 m6 offset-m3" method="POST" action="{{ url_for('login') }}">
             <div class="card-panel">
                 <!-- Username section -->
                 <div class="row">
@@ -26,16 +25,11 @@
                         minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
                         <label for="password">Password</label>
                     </div>
-                    <div class="input-field col s12">
-                        <input class="validate" id="confirm-pass" name="confirm-pass" type="password" class="validate"
-                        required pattern="^[a-zA-Z0-9]{5,15}$">
-                        <label for="confirm-pass">Confirm Password</label>
-                    </div>
                 </div>
                 <!-- register button -->
                 <div class="row">
                     <button class="col s12 btn-large grey darken-4 text-shadow letter-space register">
-                        Register
+                        Log In
                     </button>
                 </div>
             </div>
@@ -43,8 +37,8 @@
     </div>
     <div class="row">
         <div class="center-align">
-            Already registered with Recipiy?<br>
-            <a href="{{ url_for('login') }}">Click here to Log In</a>
+            New to Recipiy?<br>
+            <a href="{{ url_for('register') }}">Click here to Register</a>
         </div>
     </div>
 

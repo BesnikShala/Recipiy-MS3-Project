@@ -22,7 +22,7 @@
                       <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
                       <li><a href="#">My Recipes</a></li>
                       <li><a href="#">Add Recipe</a></li>
-                      <li><a href="#">Log In</a></li>
+                      <li><a href="{{ url_for('login') }}">Log In</a></li>
                       <li><a href="#">Log Out</a></li>
                       <li><a class="modal-trigger" href="{{ url_for('register') }}">Register</a></li>
                       
@@ -34,7 +34,7 @@
               <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
               <li><a href="#">My Recipes</a></li>
               <li><a href="#">Add Recipe</a></li>
-              <li><a href="#">Log In</a></li>
+              <li><a href="{{ url_for('login') }}">Log In</a></li>
               <li><a href="#">Log Out</a></li>
               <li><a class="modal-trigger" href="{{ url_for('register') }}">Register</a></li>
           </ul>
@@ -42,15 +42,18 @@
 
     <section>
         <!-- flash messages -->
-        {% with flashes = get_flashed_messages() %}
-            {% if flashes %}
-                {% for flash in flashes %}
-                    <div class="row flashes">
-                        <h4 class="center-align">{{ flash }}</h4>
-                    </div>
-                {% endfor %}
-            {% endif %}
-        {% endwith %}
+        <div class="row">
+            .col
+            {% with flashes = get_flashed_messages() %}
+                {% if flashes %}
+                    {% for flash in flashes %}
+                        <div class="row flashes">
+                            <h5 class="col m6 offset-m3 center-align">{{ flash }}</h5>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
 
     </section>
 
