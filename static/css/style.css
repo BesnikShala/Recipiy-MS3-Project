@@ -24,6 +24,10 @@ nav .brand-logo {
     letter-spacing: 5px;
 }
 
+.nav-margin {
+    margin-bottom: -10px;
+}
+
 /* Title styling */
 
 .letter-space {
@@ -46,4 +50,13 @@ nav .brand-logo {
 
 .margin-top {
     margin-top: 10px;
+}
+
+/* images */
+
+.recipe-img {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    margin-top: -20px;
 }

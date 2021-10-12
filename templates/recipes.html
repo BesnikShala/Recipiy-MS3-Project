@@ -2,6 +2,12 @@
 {% extends "base.html" %}
 {% block content %}
 
+    <div class="image">
+        <span>
+            <img class="recipe-img" src="/static/images/salad.jpeg">
+        </span>
+    </div>
+
 
     {% for recipe in recipes %}
         {{ recipe.recipe_name }}<br>
