@@ -1,11 +1,88 @@
 {% extends "base.html" %}
 {% block content %}
 
-    
     <section class="center-align">
         <h3>Add Your Own Recipe</h3>
         <P>Here you can add your very own recipe using our form below. Please enter accurate
-         details and ensure the instructions and ingredients are correct<br>
+            details and ensure the instructions and ingredients are correct<br>
             Don't forget to list any possible alergens</P>
     </section>
+
+    <div class="parallax-container">
+        <div class="parallax"><img src="/static/images/salad.jpeg"></div>
+    </div>
+    <div class="section white">
+        <div class="row container">
+            <form class="col s12 m8 offset-m2 form" method="POST" action="">
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input id="recipe_title" name="recipe_title" type="text" class="validate" required>
+                        <label for="recipe_title">Title</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <textarea id="recipe_description" class="materialize-textarea" required></textarea>
+                        <label for="recipe_description">Description</label>
+                    </div>
+                    <div class="input-field col s12 m4">
+                        <select>
+                            <option name="recipe_cuisine" id="recipe_cuisine" value="" disabled selected></option>
+                            <option name="recipe_cuisine" id="recipe_cuisine" value="1">Italian</option>
+                            <option name="recipe_cuisine" id="recipe_cuisine" value="2">Greek</option>
+                            <option name="recipe_cuisine" id="recipe_cuisine" value="3">Chinese</option>
+                            <option name="recipe_cuisine" id="recipe_cuisine" value="3">Turkish</option>
+                        </select>
+                        <label for="recipe_cuisine" >Cuisine</label>
+                    </div>
+                    <div class="input-field col s12 m4">
+                        <select>
+                            <option value="" disabled selected></option>
+                            <option value="1">Breakfast</option>
+                            <option value="2">Lunch</option>
+                            <option value="3">Dinner</option>
+                            <option value="3">Dessert</option>
+                        </select>
+                        <label>Recipe Type</label>
+                    </div>
+                    <div class="input-field col s12 m4">
+                        <select>
+                            <option value="" disabled selected></option>
+                            <option value="1">beginner</option>
+                            <option value="2">Intermediate</option>
+                            <option value="3">Expert</option>
+                        </select>
+                        <label>Skill Level</label>
+                    </div>
+                    <!-- Ingredients Input -->
+                    <div class="chips chips-initial col s12"></div>
+
+                    <div class="input-field col s12 m4">
+                        <input id="recipe_time" name="recipe_time" type="text" class="validate">
+                        <label for="recipe_time">Time Required</label>
+                    </div>
+                    <div id="utensil" class="chips chips-initial col s12 m4"></div>
+                    <div class="input-field col s12 m4">
+                        <select>
+                            <option value="" disabled selected></option>
+                            <option value="1">Nuts</option>
+                            <option value="2">Shellfish</option>
+                            <option value="3">Dairy</option>
+                        </select>
+                        <label>Alergens</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <textarea id="recipe_instructions" name="recipe_instructions" class="materialize-textarea"
+                            required></textarea>
+                        <label for="recipe_instructions">Instructions</label>
+                    </div>
+                    <button class="col s12 btn-large grey darken-4 text-shadow letter-space register">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="parallax-container">
+        <div class="parallax"><img src="/static/images/spaghetti-carbonara.jpg"></div>
+    </div>
+
 {% endblock %}

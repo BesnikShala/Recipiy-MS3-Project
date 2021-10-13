@@ -2,21 +2,18 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="image">
-        <span>
-            <img class="recipe-img" src="/static/images/salad.jpeg">
-        </span>
+    <div class="image row">
+        <div class="col">
+            <span class="center-align">
+                <img class="recipe-img" src="/static/images/salad.jpeg">
+                <h3>Welcome to Recipiy</h3>
+                <P>Here you can view our range of recipes created by us and also by users. You are free to browse and use the recipes 
+                    on display. If you reigster you can then save any recipes you may like to your own page.<br> You will also have the 
+                    ability to create and upload your own recipes. If they change you can also edit and delete them. 
+                </P>
+            </span>
+        </div>
     </div>
-
-
-    {% for recipe in recipes %}
-        {{ recipe.recipe_name }}<br>
-        {{ recipe.recipe_description }}<br>
-        {{ recipe.recipe_ingredients }}<br>
-        {{ recipe.recipe_instructions }}<br>
-        {{ recipe.recipe_time }}<br>
-        {{ recipe.recipe_tools }}<br>
-    {% endfor %}
     
     <div class="row" >
         {% for recipe in recipes %}
