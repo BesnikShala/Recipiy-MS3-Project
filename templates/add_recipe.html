@@ -24,12 +24,12 @@
                         <label for="recipe_description">Description</label>
                     </div>
                     <div class="input-field col s12 m4">
-                        <select>
-                            <option name="recipe_cuisine" id="recipe_cuisine" value="" disabled selected></option>
-                            <option name="recipe_cuisine" id="recipe_cuisine" value="1">Italian</option>
-                            <option name="recipe_cuisine" id="recipe_cuisine" value="2">Greek</option>
-                            <option name="recipe_cuisine" id="recipe_cuisine" value="3">Chinese</option>
-                            <option name="recipe_cuisine" id="recipe_cuisine" value="3">Turkish</option>
+                        <select id="cuisine_type" name="cuisine_type">
+                            <option value="" disabled selected></option>
+                            {% for cuisines in cuisine %}
+                            <option value="{{ cuisines.cuisine_type }}">{{ cuisines.cuisine_type }}</option>
+                            {% endfor %}
+                           
                         </select>
                         <label for="recipe_cuisine" >Cuisine</label>
                     </div>
@@ -59,7 +59,7 @@
                         <input id="recipe_time" name="recipe_time" type="text" class="validate">
                         <label for="recipe_time">Time Required</label>
                     </div>
-                    <div id="utensil" class="chips chips-initial col s12 m4"></div>
+                    <div id="recipe_tools" class="chips chips-initial col s12 m4"></div>
                     <div class="input-field col s12 m4">
                         <select>
                             <option value="" disabled selected></option>

@@ -14,7 +14,7 @@ $(document).ready(function () {
         },
         onChipAdd: function (autocomplete, tag) {
             $(tag).find('.material-icons').removeClass('material-icons').addClass('fas fa-times right').text('');
-            $(".chip").attr("name", "ingredients");
+            $(".chip").attr("name", "recipe_ingredients");
         }
     });
 
