@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <section class="center-align">
+        <h2> {{ recipe.recipe_name }} </h2>
+        <P>{{ recipe.recipe_description }}</P>
+    </section>
+
+    <div class="container">
+        <div class="row text-center view-recipe">
+            <div class="col s12 m4">
+                <i class="fas fa-clock"></i>
+                <div>{{ recipe.recipe_time }}</div>
+            </div>
+            <div class="col s12 m4">
+                <i class="fas fa-hamburger"></i>
+                <div>{{ recipe.recipe_type }}</div>
+            </div>
+            <div class="col s12 m4">
+                <i class="fas fa-globe-americas"></i>
+                <div>{{ recipe.cuisine_type }}</div>
+            </div>
+
+            <div class="col s12 center-align">
+                <h3>Ingredients</h3>
+            </div>
+            <div class="col s12 center-align">
+                <p>{{ recipe.recipe_ingredients }}</p>
+            </div>
+            <div class="col s12 center-align">
+                <h3>Utensils</h3>
+            </div>
+            <div class="col s12 center-align">
+                <p>{{ recipe.recipe_tools }}</p>
+            </div>
+            <div class="col s12 center-align">
+                <h3>Instructions</h3>
+            </div>
+            <div class="col s12 center-align">
+                <p>{{ recipe.recipe_instructions }}</p>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
