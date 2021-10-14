@@ -6,16 +6,25 @@ $(document).ready(function () {
     $('.modal').modal();
     $('.parallax').parallax();
     $('select').formSelect();
-    $('.chips-initial').chips({
-        autocompleteOptions: {
-            //  data: [{
-            //      tag: 'e.g carrots'
-            //  }],
-        },
-        onChipAdd: function (autocomplete, tag) {
-            $(tag).find('.material-icons').removeClass('material-icons').addClass('fas fa-times right').text('');
-            $(".chip").attr("name", "recipe_ingredients");
-        }
+   
+    // Add new Ingredient Input
+    let ingredient = 1;
+
+    $(".add_ingredient").click(function (e) {
+        e.preventDefault();
+        ingredient++;
+        $(".new_ingredient").append(`
+            <div class="input-field col s12 m6">
+            <input id ="recipe_ingredients${ingredient}" name="recipe_ingredients"
+            type = "text" class = "validate"required><label
+            for = "recipe_ingredients${ingredient}">Ingredients</label>
+            <button class="btn delete_ingredient" type="button">-</button>`);
     });
 
+    // Remove Ingredient Input
+
+    $("body").on('click', ".delete_ingredient", function (){
+        $(this).parent('div').remove();
+        ingredient--;
+    });
 });

@@ -13,25 +13,28 @@
     </div>
     <div class="section white">
         <div class="row container">
-            <form class="col s12 m8 offset-m2 form" method="POST" action="">
-                <div class="row">
+            <form class="col s12 m8 offset-m2 form" method="POST" action="{{ url_for('add_recipe') }}">
+                <div class="row" id="form">
+                    <!-- Recipe Name Input -->
                     <div class="input-field col s12">
-                        <input id="recipe_title" name="recipe_title" type="text" class="validate" required>
-                        <label for="recipe_title">Title</label>
+                        <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
+                        <label for="recipe_name">Recipe Name</label>
                     </div>
+                    <!-- Description Input -->
                     <div class="input-field col s12">
-                        <textarea id="recipe_description" class="materialize-textarea" required></textarea>
+                        <textarea id="recipe_description" name="recipe_description" class="materialize-textarea"
+                            required></textarea>
                         <label for="recipe_description">Description</label>
                     </div>
+                    <!-- Cuisine Input -->
                     <div class="input-field col s12 m4">
                         <select id="cuisine_type" name="cuisine_type">
                             <option value="" disabled selected></option>
                             {% for cuisines in cuisine %}
                             <option value="{{ cuisines.cuisine_type }}">{{ cuisines.cuisine_type }}</option>
                             {% endfor %}
-                           
                         </select>
-                        <label for="recipe_cuisine" >Cuisine</label>
+                        <label for="cuisine_type">Cuisine</label>
                     </div>
                     <div class="input-field col s12 m4">
                         <select>
@@ -43,38 +46,43 @@
                         </select>
                         <label>Recipe Type</label>
                     </div>
-                    <div class="input-field col s12 m4">
-                        <select>
-                            <option value="" disabled selected></option>
-                            <option value="1">beginner</option>
-                            <option value="2">Intermediate</option>
-                            <option value="3">Expert</option>
-                        </select>
-                        <label>Skill Level</label>
-                    </div>
                     <!-- Ingredients Input -->
-                    <div class="chips chips-initial col s12"></div>
+                    <div class="input-field col s12 m6" id="add_ing">
+                        <input id="recipe_ingredients add_ing" name="recipe_ingredients" type="text" class="validate" required>
+                        <label for="recipe_ingredients">Ingredients</label>
+                        <button class="btn add_ingredient" type="button">+</button>
+                    </div>
+                    <div class="new_ingredient"></div>
+                 
 
+                    <!-- Utensils Input -->
+
+                    <div class="input-field col s12">
+                        <input id="recipe_tools" name="recipe_tools" type="text" class="validate" required>
+                        <label for="recipe_tools">Utensils</label>
+                    </div>
+                    <!-- Time Input -->
                     <div class="input-field col s12 m4">
                         <input id="recipe_time" name="recipe_time" type="text" class="validate">
                         <label for="recipe_time">Time Required</label>
                     </div>
-                    <div id="recipe_tools" class="chips chips-initial col s12 m4"></div>
                     <div class="input-field col s12 m4">
                         <select>
                             <option value="" disabled selected></option>
                             <option value="1">Nuts</option>
-                            <option value="2">Shellfish</option>
+                            <option value="2">Shellfish</option>title
                             <option value="3">Dairy</option>
                         </select>
                         <label>Alergens</label>
                     </div>
+                    <!-- Instruction Input -->
                     <div class="input-field col s12">
                         <textarea id="recipe_instructions" name="recipe_instructions" class="materialize-textarea"
                             required></textarea>
                         <label for="recipe_instructions">Instructions</label>
                     </div>
-                    <button class="col s12 btn-large grey darken-4 text-shadow letter-space register">
+                    <!-- Submit Button -->
+                    <button type="submit" class="col s12 btn-large grey darken-4 text-shadow letter-space register">
                         Submit
                     </button>
                 </div>
