@@ -27,4 +27,27 @@ $(document).ready(function () {
         $(this).parent('div').remove();
         ingredient--;
     });
+
+    // Add New Utensil
+
+    let utensil = 1;
+
+    $(".add_utensil").click(function (e) {
+        e.preventDefault();
+        utensil++;
+        $(".new_utensil").append(`
+                <div class="input-field col s12 m6">
+                <input id="recipe_tools${utensil} "name="recipe_tools"
+                type="text" class="validate" required><label
+                for="recipe_tools${utensil}">Utensils</label> 
+                <button class="btn delete_utensil"
+                type="button">-</button>`);
+        });
+
+    // Remove Utensil
+
+    $("body").on('click', ".delete_utensil", function () {
+        $(this).parent('div').remove();
+        utensil--;
+    });
 });
