@@ -2,10 +2,8 @@
 {% block content %}
 
     <section class="center-align">
-        <h3>Add Your Own Recipe</h3>
-        <P>Here you can add your very own recipe using our form below. Please enter accurate
-            details and ensure the instructions and ingredients are correct<br>
-            Don't forget to list any possible alergens</P>
+        <h3>Edit Recipe</h3>
+        <P>Here you can edit your own recipes that you have previously added. </P>
     </section>
 
     <div class="parallax-container">
@@ -13,7 +11,7 @@
     </div>
     <div class="section white">
         <div class="row container">
-            <form class="col s12 m8 offset-m2 form" method="POST" action="{{ url_for('add_recipe') }}">
+            <form class="col s12 m8 offset-m2 form" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
                 <div class="row" id="form">
                     <!-- Recipe Name Input -->
                     <div class="input-field col s12">
@@ -83,7 +81,7 @@
                     </div>
                     <!-- Submit Button -->
                     <button type="submit" class="col s12 btn-large grey darken-4 text-shadow letter-space register">
-                        Submit
+                        Edit Recipe
                     </button>
                 </div>
             </form>
