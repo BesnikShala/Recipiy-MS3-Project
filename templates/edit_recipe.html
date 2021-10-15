@@ -41,10 +41,10 @@
                     </div>
                     <div class="input-field col s12 m6">
                         <select>
-                            <option value="" disabled selected></option>
+                            <option value="" disabled></option>
                             {% for category in categories %}
                                 {% if category.recipe_type == recipe.recipe_type %}
-                                    <option value="{{ category.recipe_type }}">{{ category.recipe_type }}</option>
+                                    <option value="{{ category.recipe_type }}" selected>{{ category.recipe_type }}</option>
                                 {% else %}
                                     <option value="{{ category.recipe_type }}">{{ category.recipe_type }}</option>
                                 {% endif %}
@@ -53,12 +53,18 @@
                         <label>Recipe Type</label>
                     </div>
                     <!-- Ingredients Input -->
-                    <div class="input-field col s12 ">
-                        <input id="recipe_ingredients add_ing" value="{{ recipe.recipe_ingredients }}"
-                            name="recipe_ingredients" type="text" class="validate" required>
-                        <label for="recipe_ingredients">Ingredients</label>
-                        <button class="btn add_ingredient" type="button">+</button>
-                    </div>
+                        {% for ingredient in recipe.recipe_ingredients %}
+                            <div class="input-field col s12 m6">
+                                <input id="recipe_ingredients-{{ loop.index }}" name="recipe_ingredients" type="text"
+                                    class="validate" value="{{ ingredient }}" required>
+                                <label for="recipe_ingredients-{{ loop.index }}">Ingredients</label>
+                                {% if loop.index == 1 %}
+                                    <button class="btn add_ingredient" type="button">+</button>
+                                {% else %}
+                                    <button class="btn delete_ingredient" type="button"> - </button>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
                     <div class="new_ingredient"></div>
                     <!-- Utensils Input -->
                     <div class="input-field col s12">

@@ -59,3 +59,12 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
 
 ## Design
 
+* Colour Scheme
+    * I have kept a very simple and clean look to the page with not much colour. This is very common and wide spread with many recipe sites.
+    The simplicity means users can focus on the imagery and then also on the information. I have used a white background to enforce this as
+    it emphasises on the imagery and the information displayed. 
+
+* Imagery
+    * The imagery used by myself are mainly professional images taken from pixels and unsplash. The users have the option to upload their own
+    images to their recipes via a url link. This means the main page recipe images are subject to continuos change. The images used on the other
+    pages show the 

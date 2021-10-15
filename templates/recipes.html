@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 {% extends "base.html" %}
 {% block content %}
 
@@ -7,15 +6,14 @@
             <span class="center-align">
                 <img class="recipe-img" src="/static/images/salad.jpeg">
                 <h3>Welcome to Recipiy</h3>
-                <P>Here you can view our range of recipes created by us and also by users. You are free to browse and use the recipes 
+                <p>Here you can view our range of recipes created by us and also by users. You are free to browse and use the recipes 
                     on display. If you reigster you can then save any recipes you may like to your own page.<br> You will also have the 
                     ability to create and upload your own recipes. If they change you can also edit and delete them. 
-                </P>
+                </p>
             </span>
         </div>
     </div>
 
-    
     <div class="row" >
         {% for recipe in recipes %}
         <div class="col s12 m3 offset-m1">

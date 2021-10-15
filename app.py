@@ -136,22 +136,24 @@ def edit_recipe(recipe_id):
             "created_by": session["user"],
             "allergens": request.form.get("allergens")
         }
-        mongo.db.recipes.update({"_id": ObjectId(recipe_id)},submit)
+        mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("You're recipe has been successfully Edited!")
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     cuisine = mongo.db.cuisine.find().sort("cuisine_type", 1)
-    return render_template("edit_recipe.html", recipe=recipe, cuisine=cuisine)
+    categories = mongo.db.categories.find()
+    return render_template(
+        "edit_recipe.html", recipe=recipe, cuisine=cuisine, categories=categories)
 
 
-@app.route("/delete_recipe, <recipe_id>")
+@app.route("/delete_recipe/, <recipe_id>")
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("You have successfully delteted your recipe")
     return redirect(url_for("get_recipes"))
 
 
-@app.route("/view_recipe/<recipe_id>")
+@app.route("/view_recipe/<recipe_id>") 
 def view_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("view_recipe.html", recipe=recipe)
@@ -160,4 +162,4 @@ def view_recipe(recipe_id):
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
-            debug=True)
+            debug=os.environ.get("DEBUG"))

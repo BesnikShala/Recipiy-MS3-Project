@@ -15,10 +15,12 @@ $(document).ready(function () {
         ingredient++;
         $(".new_ingredient").append(`
             <div class="input-field col s12 m6">
-            <input id ="recipe_ingredients${ingredient}" name="recipe_ingredients"
-            type = "text" class = "validate"required><label
-            for = "recipe_ingredients${ingredient}">Ingredients</label>
-            <button class="btn delete_ingredient" type="button">-</button>`);
+            <input id="recipe_ingredients${ingredient}" name="recipe_ingredients" type="text" class="validate"required>
+            <label for="recipe_ingredients${ingredient}">Ingredients</label>
+            <button class="btn delete_ingredient" type="button"> - </button>
+            </div>`
+        );
+
     });
 
     // Remove Ingredient Input
