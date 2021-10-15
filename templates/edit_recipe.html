@@ -15,21 +15,26 @@
                 <div class="row" id="form">
                     <!-- Recipe Name Input -->
                     <div class="input-field col s12">
-                        <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
+                        <input id="recipe_name" value="{{ recipe.recipe_name }}" name="recipe_name" type="text"
+                            class="validate" required>
                         <label for="recipe_name">Recipe Name</label>
                     </div>
                     <!-- Description Input -->
                     <div class="input-field col s12">
                         <textarea id="recipe_description" name="recipe_description" class="materialize-textarea"
-                            required></textarea>
+                            required>{{ recipe.recipe_description }}</textarea>
                         <label for="recipe_description">Description</label>
                     </div>
                     <!-- Cuisine Input -->
                     <div class="input-field col s12 m6">
                         <select id="cuisine_type" name="cuisine_type">
-                            <option value="" disabled selected></option>
+                            <option value="" disabled></option>
                             {% for cuisines in cuisine %}
-                            <option value="{{ cuisines.cuisine_type }}">{{ cuisines.cuisine_type }}</option>
+                                {% if cuisines.cuisine_type == recipe.cuisine_type %}
+                                    <option value="{{ cuisines.cuisine_type }}" selected>{{ cuisines.cuisine_type}}</option>
+                                {% else %}
+                                    <option value="{{ cuisines.cuisine_type }}">{{ cuisines.cuisine_type }}</option>
+                                {% endif %}
                             {% endfor %}
                         </select>
                         <label for="cuisine_type">Cuisine</label>
@@ -37,30 +42,36 @@
                     <div class="input-field col s12 m6">
                         <select>
                             <option value="" disabled selected></option>
-                            <option value="1">Breakfast</option>
-                            <option value="2">Lunch</option>
-                            <option value="3">Dinner</option>
-                            <option value="3">Dessert</option>
+                            {% for category in categories %}
+                                {% if category.recipe_type == recipe.recipe_type %}
+                                    <option value="{{ category.recipe_type }}">{{ category.recipe_type }}</option>
+                                {% else %}
+                                    <option value="{{ category.recipe_type }}">{{ category.recipe_type }}</option>
+                                {% endif %}
+                            {% endfor %}
                         </select>
                         <label>Recipe Type</label>
                     </div>
                     <!-- Ingredients Input -->
                     <div class="input-field col s12 ">
-                        <input id="recipe_ingredients add_ing" name="recipe_ingredients" type="text" class="validate" required>
+                        <input id="recipe_ingredients add_ing" value="{{ recipe.recipe_ingredients }}"
+                            name="recipe_ingredients" type="text" class="validate" required>
                         <label for="recipe_ingredients">Ingredients</label>
                         <button class="btn add_ingredient" type="button">+</button>
                     </div>
                     <div class="new_ingredient"></div>
                     <!-- Utensils Input -->
                     <div class="input-field col s12">
-                        <input id="recipe_tools" name="recipe_tools" type="text" class="validate" required>
+                        <input id="recipe_tools" value="{{ recipe.recipe_tools }}" name="recipe_tools" type="text"
+                            class="validate" required>
                         <label for="recipe_tools">Utensils</label>
                         <button class="btn add_utensil" type="button">+</button>
                     </div>
                     <div class="new_utensil"></div>
                     <!-- Time Input -->
                     <div class="input-field col s12 m6">
-                        <input id="recipe_time" name="recipe_time" type="text" class="validate">
+                        <input id="recipe_time" value="{{ recipe.recipe_time }}" name="recipe_time" type="text"
+                            class="validate">
                         <label for="recipe_time">Time Required</label>
                     </div>
                     <!-- Allergens -->
@@ -76,13 +87,21 @@
                     <!-- Instruction Input -->
                     <div class="input-field col s12">
                         <textarea id="recipe_instructions" name="recipe_instructions" class="materialize-textarea"
-                            required></textarea>
+                            required>{{ recipe.recipe_instructions }}</textarea>
                         <label for="recipe_instructions">Instructions</label>
                     </div>
-                    <!-- Submit Button -->
-                    <button type="submit" class="col s12 btn-large grey darken-4 text-shadow letter-space register">
-                        Edit Recipe
-                    </button>
+                    <!-- Edit Button -->
+                </div>
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button type="submit"
+                            class="btn-large grey darken-4 text-shadow letter-space register">
+                            Edit Recipe
+                        </button>
+                        <!-- Cancel Edit Button -->
+                        <a href="{{ url_for('get_recipes') }}"
+                            class="btn-large red accent-3 text-shadow cancel">Cancel</a>
+                    </div>
                 </div>
             </form>
         </div>
