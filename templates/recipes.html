@@ -1,22 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="image row">
-        <div class="col">
-            <span class="center-align">
-                <img class="recipe-img" src="/static/images/salad.jpeg">
-                <h3>Welcome to Recipiy</h3>
-                <p>Here you can view our range of recipes created by us and also by users. You are free to browse and use the recipes 
-                    on display. If you reigster you can then save any recipes you may like to your own page.<br> You will also have the 
-                    ability to create and upload your own recipes. If they change you can also edit and delete them. 
-                </p>
-            </span>
-        </div>
+    <div class="image-wrap row" id="search input">
+        <img class="recipe-img" src="/static/images/salad.jpeg">
+            <div class="col s12 m6 search-div" id="search input">
+                <label class="text-center search-text" for="search">SEARCH RECIPE</label>
+                <i class="fas fa-search search-icon text-darken"></i>
+                <input class="grey lighten-3" type="text" name="search" id="search input">
+            </div>
     </div>
 
+
+    <div class="center-align container about">
+        <h3>Welcome to Recipiy</h3>
+        <p>Here you can view our range of recipes created by us and also by users. You are free to browse
+            and use the recipes
+            on display. If you reigster you can then save any recipes you may like to your own page.<br> You
+            will also have the
+            ability to create and upload your own recipes. If they change you can also edit and delete them.
+        </p>
+    </div>
+    
+    <div class="container">
     <div class="row" >
         {% for recipe in recipes %}
-        <div class="col s12 m3 offset-m1">
+        <div class="col s12 m4">
            <div class="card">
                <div class="card-image waves-effect waves-block waves-light">
                    <img class="activator" src="/static/images/spaghetti-carbonara.jpg">
@@ -34,6 +42,7 @@
            </div>
         </div>
         {% endfor %}  
+    </div>
     </div>
 
 

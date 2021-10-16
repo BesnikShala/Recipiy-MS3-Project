@@ -28,6 +28,10 @@ nav .brand-logo {
     margin-bottom: -10px;
 }
 
+.bars-icon {
+    color: black;
+}
+
 /* Title styling */
 
 .letter-space {
@@ -66,4 +70,37 @@ nav .brand-logo {
 
 .form {
     box-shadow: 2px 2px 2px black;
+}
+
+.image-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.search-div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.search-icon {
+    font-size: 3.0vw;
+    color: black;
+    margin: 6px;
+}
+
+.search-text {
+    letter-spacing: 2px;
+    color: black;
+    text-align: center;
+    font-size: 3.0vw;
+}
+
+.about {
+    background-color: rgb(230 246 255 / 60%);
+    letter-spacing: 2px;
 }

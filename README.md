@@ -120,8 +120,22 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
 
 * Delete Recipes
 
-    * Again only available to the user who created the recipe, there is an option for the user to delte the recipe. 
+    * This feature is only available to the user who created the recipe, there is an option for the user to delete the recipe. 
 
+
+## Features Left to Implement
+
+## Technologies Used
+
+### Front-End Technologies
+
+### Back-End Technologies
+
+## Testing
+
+## Deployment
+
+## Credits
 
 
 
