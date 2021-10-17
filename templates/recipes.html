@@ -23,6 +23,7 @@
         </p>
     </div>
     
+    {% if recipes|length > 0 %}
     <div class="container">
     <div class="row" >
         {% for recipe in recipes %}
@@ -46,6 +47,11 @@
         {% endfor %}  
     </div>
     </div>
+    {% else %}
+    <div class="red-text center-align container about">
+        <h3>No Results Found</h3>
+    </div>
+    {% endif %} 
 
 
 {% endblock %}

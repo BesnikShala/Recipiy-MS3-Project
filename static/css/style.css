@@ -115,3 +115,29 @@ nav .brand-logo {
 .input {
     font-size: 25px;
 }
+
+/* Footer */
+
+.my-footer {
+    background-color: #4a4a4a;
+    padding: 10px 0px;
+    text-align: center;
+
+}
+
+.footer-title {
+    letter-spacing: 3px;
+    color: white;
+    text-shadow: 2px 2px 2px rgb(207, 68, 26);
+    text-align: center;
+}
+
+.footer-links li {
+    display: inline-block;
+    text-align: center;
+}
+
+.footer-links li i {
+    font-size: 30px;
+    margin: 20px;
+}
