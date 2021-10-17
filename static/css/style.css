@@ -6,6 +6,10 @@ html, body {
     font-family: "Lato", sans-serif;
     line-height: 1.5;
     box-sizing: border-box;
+    min-height: 100vw;
+    width: 100vw;
+    overflow-x: hidden;
+
 }
 
 .text-shadow {
@@ -22,6 +26,8 @@ nav ul a {
 nav .brand-logo {
     color: black;
     letter-spacing: 5px;
+    margin-left: 30px;
+    text-shadow: 2px 2px 1px orange;
 }
 
 .nav-margin {
@@ -31,6 +37,7 @@ nav .brand-logo {
 .bars-icon {
     color: black;
 }
+
 
 /* Title styling */
 
@@ -88,7 +95,7 @@ nav .brand-logo {
 }
 
 .search-icon {
-    font-size: 3.0vw;
+    font-size: 2.5vw;
     color: black;
     margin: 6px;
 }
@@ -97,10 +104,14 @@ nav .brand-logo {
     letter-spacing: 2px;
     color: black;
     text-align: center;
-    font-size: 3.0vw;
+    font-size: 2.8vw;
 }
 
 .about {
     background-color: rgb(230 246 255 / 60%);
     letter-spacing: 2px;
+}
+
+.input {
+    font-size: 25px;
 }

@@ -1,13 +1,15 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="image-wrap row" id="search input">
+    <div class="image-wrap row" id="searcher input">
         <img class="recipe-img" src="/static/images/salad.jpeg">
-            <div class="col s12 m6 search-div" id="search input">
-                <label class="text-center search-text" for="search">SEARCH RECIPE</label>
+        <form action="{{ url_for('search') }}" method="POST" class="col s12">
+            <div class="col s12 m6 search-div" id="searcher input">
+                <label class="text-center search-text" for="searcher">SEARCH RECIPE</label>
                 <i class="fas fa-search search-icon text-darken"></i>
-                <input class="grey lighten-3" type="text" name="search" id="search input">
+                <input class="grey lighten-3" type="text" name="searcher" id="search input">
             </div>
+        </form>
     </div>
 
 
