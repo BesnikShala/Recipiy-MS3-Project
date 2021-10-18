@@ -53,6 +53,8 @@ $(document).ready(function () {
         utensil--;
     });
 
+    // add instruction input field
+
     let instruction = 1;
     
     $(".add_instruction").click(function (e) {
@@ -68,6 +70,7 @@ $(document).ready(function () {
              type="button ">-</button>`);
     });
 
+    // remove instruction input field
     $("body").on('click', ".delete_instruction", function () {
         $(this).parent('div').remove();
         instruction--;

@@ -6,11 +6,20 @@ html, body {
     font-family: "Lato", sans-serif;
     line-height: 1.5;
     box-sizing: border-box;
-    min-height: 100vw;
     width: 100vw;
     overflow-x: hidden;
 
 }
+
+ body {
+     display: flex;
+     min-height: 100vh;
+     flex-direction: column;
+ }
+
+ main {
+     flex: 1 0 auto;
+ }
 
 .text-shadow {
     text-shadow: 2px 2px 2px rgba(rgb(34, 6, 6, 0.5), green, blue, alpha);
@@ -159,3 +168,4 @@ nav .brand-logo {
     max-width: 100%;
     height: auto;
 }
+

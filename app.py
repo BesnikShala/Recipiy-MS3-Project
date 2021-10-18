@@ -50,11 +50,12 @@ def register():
             flash("The password doesn't match")
             return redirect(url_for("register"))
 
-        register = {
+        user = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "user_recipes": []
         }
-        mongo.db.users.insert_one(register)
+        mongo.db.users.insert_one(user)
 
         session["user"] = request.form.get("username").lower()
         flash("You Have Successfully Registered")
@@ -115,25 +116,24 @@ def add_recipe():
             "recipe_description": request.form.get("recipe_description"),
             "recipe_time": request.form.get("recipe_time"),
             "recipe_tools": request.form.getlist("recipe_tools"),
-            "recipe_instructions": request.form.get("recipe_instructions"),
+            "recipe_instructions": request.form.getlist("recipe_instructions"),
             "recipe_ingredients": request.form.getlist("recipe_ingredients"),
             "recipe_type": request.form.get("recipe_type"),
             "created_by": session["user"],
             "allergens": request.form.get("allergens")
         }
-        
+
         newID = mongo.db.recipes.insert_one(recipe)
 
-        users.update_one(
-            {"_id": ObjectId(created_by)},
+        mongo.db.users.update_one(
+            {"username": session["user"]},
             {"$push": {"user_recipes": newID.inserted_id}})
         flash("added to my recipes")
 
-        mongo.db.recipes.insert_one(recipe)
-        flash("You're recipe has been added")
-        return redirect(url_for("get_recipes", recipe_id=newID.inserted_id))
+        return redirect(url_for("view_recipe", recipe_id=newID.inserted_id))
     cuisine = mongo.db.cuisine.find().sort("cuisine_type", 1)
-    return render_template("add_recipe.html", cuisine=cuisine)
+    instruction = mongo.db.recipes.find().sort("recipe_instructions", 1)
+    return render_template("add_recipe.html", cuisine=cuisine, instruction=instruction)
 
 
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
@@ -145,7 +145,7 @@ def edit_recipe(recipe_id):
             "recipe_description": request.form.get("recipe_description"),
             "recipe_time": request.form.get("recipe_time"),
             "recipe_tools": request.form.getlist("recipe_tools"),
-            "recipe_instructions": request.form.get("recipe_instructions"),
+            "recipe_instructions": request.form.getlist("recipe_instructions"),
             "recipe_ingredients": request.form.getlist("recipe_ingredients"),
             "recipe_type": request.form.get("recipe_type"),
             "created_by": session["user"],
@@ -156,9 +156,10 @@ def edit_recipe(recipe_id):
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     cuisine = mongo.db.cuisine.find().sort("cuisine_type", 1)
+    instruction = mongo.db.recipes.find().sort("recipe_instructions", 1)
     categories = mongo.db.categories.find()
     return render_template(
-        "edit_recipe.html", recipe=recipe, cuisine=cuisine, categories=categories)
+        "edit_recipe.html", recipe=recipe, cuisine=cuisine, categories=categories, instruction=instruction)
 
 
 @app.route("/delete_recipe/, <recipe_id>")

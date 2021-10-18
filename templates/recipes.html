@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
+    <!-- recipe search bar -->
     <div class="image-wrap row" id="searcher input">
         <img class="recipe-img" src="{{ url_for('static', filename='images/salad.jpeg') }}">
         <form action="{{ url_for('search') }}" method="POST" class="col s12">
@@ -12,7 +12,7 @@
         </form>
     </div>
 
-
+    <!-- about section -->
     <div class="center-align container about">
         <h3>Welcome to Recipiy</h3>
         <p>Here you can view our range of recipes created by us and also by users. You are free to browse
@@ -23,6 +23,7 @@
         </p>
     </div>
     
+    <!-- card display for added recipies -->
     {% if recipes|length > 0 %}
     <div class="container">
         <div class="row">
@@ -46,6 +47,7 @@
             </div>
             {% endfor %}
         </div>
+    <!-- default message if no search results found -->
     </div>
     {% else %}
     <div class="red-text center-align container about">

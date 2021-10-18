@@ -6,6 +6,7 @@
             <div class="card-images col s12">
                 <img src="{{ url_for('static', filename='images/spaghetti-carbonara.jpg') }}">
             </div>
+            <!-- display specific recipe info from db -->
             <div class="col s12 m6 offset-m3">
                 <h2> {{ recipe.recipe_name }} </h2>
                 <p>{{ recipe.recipe_description }}</p>
@@ -37,6 +38,7 @@
                 <div>{{ recipe.cuisine_type }}</div>
             </div>
         </div>
+        <!-- iterate ingredients from recipe -->
         <div class="row">
             <div class="col s12 m4 center-align offset-m1">
                 <h4 class="recipe-title">Ingredients</h4>
@@ -47,6 +49,7 @@
                         </ul>
                     </div>
                 {% endfor %}
+                <!-- iterate utensils from recipe -->
             </div>
             <div class="col s12 m4 center-align offset-m1">
                 <h4 class="recipe-title">Utensils</h4>
@@ -59,12 +62,18 @@
                 {% endfor %}
             </div>
         </div>
+
+        <!-- iterate instructions from recipe -->
         <div class="row">
             <div class="col s12 center-align">
                 <h4 class="recipe-title">Instructions</h4>
-            </div>
-            <div class="col s12 center-align">
-                <p>{{ recipe.recipe_instructions }}</p>
+                 {% for instruction in recipe.recipe_instructions %}
+                 <div>
+                     <ul>
+                         <li>{{ instruction }}</li>
+                     </ul>
+                 </div>
+                 {% endfor %}
             </div>
         </div>
     </div>
