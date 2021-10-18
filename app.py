@@ -121,9 +121,17 @@ def add_recipe():
             "created_by": session["user"],
             "allergens": request.form.get("allergens")
         }
+        
+        newID = mongo.db.recipes.insert_one(recipe)
+
+        users.update_one(
+            {"_id": ObjectId(created_by)},
+            {"$push": {"user_recipes": newID.inserted_id}})
+        flash("added to my recipes")
+
         mongo.db.recipes.insert_one(recipe)
         flash("You're recipe has been added")
-        return redirect(url_for("get_recipes"))
+        return redirect(url_for("get_recipes", recipe_id=newID.inserted_id))
     cuisine = mongo.db.cuisine.find().sort("cuisine_type", 1)
     return render_template("add_recipe.html", cuisine=cuisine)
 

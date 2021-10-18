@@ -141,3 +141,21 @@ nav .brand-logo {
     font-size: 30px;
     margin: 20px;
 }
+
+/* View Recipe */
+
+.recipe-icon i {
+    margin: 10px;
+    font-size: 35px;
+    color: orangered;
+}
+
+.recipe-title {
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.card-images {
+    max-width: 100%;
+    height: auto;
+}

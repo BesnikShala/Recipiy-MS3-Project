@@ -7,9 +7,9 @@
             details and ensure the instructions and ingredients are correct<br>
             Don't forget to list any possible alergens</P>
     </section>
-
+ 
     <div class="parallax-container">
-        <div class="parallax"><img src="/static/images/salad.jpeg"></div>
+        <div class="parallax"><img src="{{ url_for('static', filename='images/salad.jpeg') }}"></div>
     </div>
     <div class="section white">
         <div class="row container">
@@ -80,7 +80,9 @@
                         <textarea id="recipe_instructions" name="recipe_instructions" class="materialize-textarea"
                             required></textarea>
                         <label for="recipe_instructions">Instructions</label>
+                        <button class="btn add_instruction" type="button">+</button>
                     </div>
+                    <div class="new_instruction"></div>
                     <!-- Submit Button -->
                     <button type="submit" class="col s12 btn-large grey darken-4 text-shadow letter-space register">
                         Submit
@@ -90,7 +92,7 @@
         </div>
     </div>
     <div class="parallax-container">
-        <div class="parallax"><img src="/static/images/spaghetti-carbonara.jpg"></div>
+        <div class="parallax"><img src="{{ url_for('static', filename='images/spaghetti-carbonara.jpg') }}"></div>
     </div>
 
 {% endblock %}

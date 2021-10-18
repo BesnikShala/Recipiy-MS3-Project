@@ -1,47 +1,67 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <section class="center-align">
-        <h2> {{ recipe.recipe_name }} </h2>
-        <p>{{ recipe.recipe_description }}</p>
-        <p>by:  {{ recipe.created_by }}</p>
-        <!-- display edit and delete buttons only to recipe owner -->
-        {% if session.user|lower == recipe.created_by|lower %}
-            <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small blue accent-3">Edit</a>
-            <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small red accent-4">Delete</a>
-        {% endif %}
-
-    </section>
+    <div class="container center-align">
+        <div class="row card-panel">
+            <div class="card-images col s12">
+                <img src="{{ url_for('static', filename='images/spaghetti-carbonara.jpg') }}">
+            </div>
+            <div class="col s12 m6 offset-m3">
+                <h2> {{ recipe.recipe_name }} </h2>
+                <p>{{ recipe.recipe_description }}</p>
+                <p>by: {{ recipe.created_by }}</p>
+                <!-- display edit and delete buttons only to recipe owner -->
+                {% if session.user|lower == recipe.created_by|lower %}
+                <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small blue accent-3">Edit</a>
+                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small red accent-4">Delete</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 
     <div class="container">
-        <div class="row text-center view-recipe">
-            <div class="col s12 m4">
+        <div class="row view-recipe">
+            <div class="col s12 m4 center-align recipe-icon">
                 <i class="fas fa-clock"></i>
+                Time needed
                 <div>{{ recipe.recipe_time }}</div>
             </div>
-            <div class="col s12 m4">
+            <div class="col s12 m4 center-align recipe-icon">
                 <i class="fas fa-hamburger"></i>
+                Type of Recipe
                 <div>{{ recipe.recipe_type }}</div>
             </div>
-            <div class="col s12 m4">
+            <div class="col s12 m4 center-align recipe-icon">
                 <i class="fas fa-globe-americas"></i>
+                Cuisine
                 <div>{{ recipe.cuisine_type }}</div>
             </div>
-
-            <div class="col s12 center-align">
-                <h3>Ingredients</h3>
+        </div>
+        <div class="row">
+            <div class="col s12 m4 center-align offset-m1">
+                <h4 class="recipe-title">Ingredients</h4>
+                {% for ingredient in recipe.recipe_ingredients %}
+                    <div>
+                        <ul>
+                            <li>{{ ingredient }}</li>
+                        </ul>
+                    </div>
+                {% endfor %}
             </div>
-            <div class="col s12 center-align">
-                <p>{{ recipe.recipe_ingredients }}</p>
+            <div class="col s12 m4 center-align offset-m1">
+                <h4 class="recipe-title">Utensils</h4>
+                {% for tools in recipe.recipe_tools %}
+                <div>
+                    <ul>
+                        <li>{{ tools }}</li>
+                    </ul>
+                </div>
+                {% endfor %}
             </div>
+        </div>
+        <div class="row">
             <div class="col s12 center-align">
-                <h3>Utensils</h3>
-            </div>
-            <div class="col s12 center-align">
-                <p>{{ recipe.recipe_tools }}</p>
-            </div>
-            <div class="col s12 center-align">
-                <h3>Instructions</h3>
+                <h4 class="recipe-title">Instructions</h4>
             </div>
             <div class="col s12 center-align">
                 <p>{{ recipe.recipe_instructions }}</p>

@@ -17,7 +17,7 @@ $(document).ready(function () {
             <div class="input-field col s12 m6">
             <input id="recipe_ingredients${ingredient}" name="recipe_ingredients" type="text" class="validate"required>
             <label for="recipe_ingredients${ingredient}">Ingredients</label>
-            <button class="btn delete_ingredient" type="button"> - </button>
+            <button class="btn red delete_ingredient" type="button"> - </button>
             </div>`
         );
 
@@ -42,8 +42,8 @@ $(document).ready(function () {
                 <input id="recipe_tools${utensil} "name="recipe_tools"
                 type="text" class="validate" required><label
                 for="recipe_tools${utensil}">Utensils</label> 
-                <button class="btn delete_utensil"
-                type="button">-</button>`);
+                <button class="btn red delete_utensil"
+                type="button ">-</button>`);
         });
 
     // Remove Utensil
@@ -52,4 +52,25 @@ $(document).ready(function () {
         $(this).parent('div').remove();
         utensil--;
     });
+
+    let instruction = 1;
+    
+    $(".add_instruction").click(function (e) {
+        e.preventDefault();
+        instruction++;
+        $(".new_instruction").append(`
+             <div class="input-field col s12 m6">
+             <input id="recipe_instructions${instruction}"
+             name = "recipe_instructions"
+             type="text" class="validate" required><label
+             for=recipe_instructions${instruction}"> instruction </label> 
+             <button class="btn red delete_instruction"
+             type="button ">-</button>`);
+    });
+
+    $("body").on('click', ".delete_instruction", function () {
+        $(this).parent('div').remove();
+        instruction--;
+    });
+
 });
