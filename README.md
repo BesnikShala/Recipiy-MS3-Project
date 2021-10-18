@@ -127,6 +127,11 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
     * A search bar on the home page which allows users to search recipes based on keywords within the title or description. I have also made
     ingredients a part of the keywords too if users want to search by ingredient. 
 
+* View Recipe
+
+    * Users have the option to view recipe cards in the home page which display brief information about the recipe. If they want to view the full
+    recipe they can click on the link which takes them to a new page whereby they can view the full recipe details and cooking instructions.
+
 ## Features Left to Implement
 
 ## Technologies Used
