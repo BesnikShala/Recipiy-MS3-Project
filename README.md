@@ -122,6 +122,10 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
 
     * This feature is only available to the user who created the recipe, there is an option for the user to delete the recipe. 
 
+* Search Recipe
+
+    * A search bar on the home page which allows users to search recipes based on keywords within the title or description. I have also made
+    ingredients a part of the keywords too if users want to search by ingredient. 
 
 ## Features Left to Implement
 
