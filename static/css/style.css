@@ -169,3 +169,9 @@ nav .brand-logo {
     height: auto;
 }
 
+ul:not(.browser-default)>li .ing-list {
+    list-style: georgian;
+    list-style-type: georgian;
+    color: blue;
+}
+

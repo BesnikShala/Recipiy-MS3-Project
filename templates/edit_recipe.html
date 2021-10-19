@@ -106,9 +106,8 @@
                     {% for instructions in recipe.recipe_instructions %}
                     <!-- loop and display individual instructions -->
                         <div class="input-field col s12">
-                            <textarea id="recipe_instructions-{{ loop.index }}" value="{{ instructions }}" name="recipe_instructions"
-                                class="materialize-textarea"
-                                required></textarea>
+                            <input id="recipe_instructions-{{ loop.index }}" value="{{ instructions }}" name="recipe_instructions"
+                                class="required" type="text">
                             <label for="recipe_instructions-{{ loop.index }}">Instructions</label>
                             <!-- loop index to avoid id duplication -->
                             {% if loop.index == 1 %}
