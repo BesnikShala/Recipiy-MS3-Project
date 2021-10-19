@@ -29,6 +29,7 @@
                     <div class="input-field col s12 m6">
                         <select id="cuisine_type" name="cuisine_type">
                             <option value="" disabled></option>
+                            <!-- loop and display options from db -->
                             {% for cuisines in cuisine %}
                                 {% if cuisines.cuisine_type == recipe.cuisine_type %}
                                     <option value="{{ cuisines.cuisine_type }}" selected>{{ cuisines.cuisine_type}}</option>
@@ -42,6 +43,7 @@
                     <div class="input-field col s12 m6">
                         <select>
                             <option value="" disabled></option>
+                            <!-- loop and display options from db -->
                             {% for category in categories %}
                                 {% if category.recipe_type == recipe.recipe_type %}
                                     <option value="{{ category.recipe_type }}" selected>{{ category.recipe_type }}</option>
@@ -54,10 +56,12 @@
                     </div>
                     <!-- Ingredients Input -->
                         {% for ingredient in recipe.recipe_ingredients %}
+                            <!-- loop and display individual ingredients -->
                             <div class="input-field col s12 m6">
                                 <input id="recipe_ingredients-{{ loop.index }}" name="recipe_ingredients" type="text"
                                     class="validate" value="{{ ingredient }}" required>
                                 <label for="recipe_ingredients-{{ loop.index }}">Ingredients</label>
+                                <!-- loop index to avoid id duplication -->
                                 {% if loop.index == 1 %}
                                     <button class="btn add_ingredient" type="button">+</button>
                                 {% else %}
@@ -68,10 +72,12 @@
                     <div class="new_ingredient"></div>
                     <!-- Utensils Input -->
                         {% for tools in recipe.recipe_tools %}
+                        <!-- loop and display individual utensils -->
                             <div class="input-field col s12">
                                 <input id="recipe_tools-{{ loop.index }}" value="{{ tools }}" name="recipe_tools"
                                     type="text" class="validate" required>
                                 <label for="recipe_tools-{{ loop.index }}">Utensils</label>
+                                <!-- loop index to avoid id duplication -->
                                 {% if loop.index == 1 %}
                                     <button class="btn add_utensil" type="button">+</button>
                                 {% else %}
@@ -97,11 +103,22 @@
                         <label>Alergens</label>
                     </div>
                     <!-- Instruction Input -->
-                    <div class="input-field col s12">
-                        <textarea id="recipe_instructions" name="recipe_instructions" class="materialize-textarea"
-                            required>{{ recipe.recipe_instructions }}</textarea>
-                        <label for="recipe_instructions">Instructions</label>
-                    </div>
+                    {% for instructions in recipe.recipe_instructions %}
+                    <!-- loop and display individual instructions -->
+                        <div class="input-field col s12">
+                            <textarea id="recipe_instructions-{{ loop.index }}" value="{{ instructions }}" name="recipe_instructions"
+                                class="materialize-textarea"
+                                required></textarea>
+                            <label for="recipe_instructions-{{ loop.index }}">Instructions</label>
+                            <!-- loop index to avoid id duplication -->
+                            {% if loop.index == 1 %}
+                                <button class="btn add_instruction" type="button">+</button>
+                            {% else %}
+                                <button class="btn delete_instruction" type="button">-</button>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                    <div class="new_instruction"></div>
                     <!-- Edit Button -->
                 </div>
                 <div class="row">
