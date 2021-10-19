@@ -67,12 +67,18 @@
                         {% endfor %}
                     <div class="new_ingredient"></div>
                     <!-- Utensils Input -->
-                    <div class="input-field col s12">
-                        <input id="recipe_tools" value="{{ recipe.recipe_tools }}" name="recipe_tools" type="text"
-                            class="validate" required>
-                        <label for="recipe_tools">Utensils</label>
-                        <button class="btn add_utensil" type="button">+</button>
-                    </div>
+                        {% for tools in recipe.recipe_tools %}
+                            <div class="input-field col s12">
+                                <input id="recipe_tools-{{ loop.index }}" value="{{ tools }}" name="recipe_tools"
+                                    type="text" class="validate" required>
+                                <label for="recipe_tools-{{ loop.index }}">Utensils</label>
+                                {% if loop.index == 1 %}
+                                    <button class="btn add_utensil" type="button">+</button>
+                                {% else %}
+                                    <button class="btn delete_utensil" type="button">-</button>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
                     <div class="new_utensil"></div>
                     <!-- Time Input -->
                     <div class="input-field col s12 m6">
