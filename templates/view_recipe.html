@@ -4,7 +4,7 @@
     <div class="container center-align">
         <div class="row card-panel">
             <div class="card-images col s12">
-                <img src="{{ url_for('static', filename='images/spaghetti-carbonara.jpg') }}">
+                <img src="{{ recipe.image_url }}">
             </div>
             <!-- display specific recipe info from db -->
             <div class="col s12 m6 offset-m3">
@@ -15,6 +15,8 @@
                 {% if session.user|lower == recipe.created_by|lower %}
                 <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small blue accent-3">Edit</a>
                 <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small red accent-4">Delete</a>
+                {% endif %}
+                {% if session.user %}
                 <a href="{{ url_for('add_favourites', recipe_id=recipe._id) }}" class="btn-small green accent-4">Add to
                     My Recipes</a>
                 {% endif %}
