@@ -43,7 +43,7 @@ $(document).ready(function () {
                 type="text" class="validate" required><label
                 for="recipe_tools${utensil}">Utensils</label> 
                 <button class="btn red delete_utensil"
-                type="button ">-</button>`);
+                type="button">-</button>`);
         });
 
     // Remove Utensil

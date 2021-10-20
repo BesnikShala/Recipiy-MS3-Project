@@ -14,7 +14,7 @@
 
      <div class="container">
          <div class="row">
-             {% for recipe in recipes %}
+             {% for favourite in favourites %}
              <div class="col s12 m4">
                  <div class="card">
                      <div class="card-image waves-effect waves-block waves-light">
@@ -22,14 +22,14 @@
                              src="{{ url_for('static', filename='images/spaghetti-carbonara.jpg') }}">
                      </div>
                      <div class="card-content">
-                         <span class="card-title activator grey-text text-darken-4">{{ recipe.recipe_name }}<i
+                         <span class="card-title activator grey-text text-darken-4">{{ favourite.recipe_name }}<i
                                  class="fas fa-plus-square right"></i></span>
-                         <p><a href="{{ url_for('view_recipe', recipe_id=recipe._id) }}">View Recipe</a></p>
+                         
                      </div>
                      <div class="card-reveal">
-                         <span class="card-title grey-text text-darken-4">{{ recipe.recipe_name }}<i
+                         <span class="card-title grey-text text-darken-4">{{ favourite.recipe_name }}<i
                                  class="fas fa-times-circle right"></i></span>
-                         <p>{{ recipe.recipe_description }}</p>
+                         <p>{{ favourite.recipe_description }}</p>
                      </div>
                  </div>
              </div>

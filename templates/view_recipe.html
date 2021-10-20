@@ -15,6 +15,8 @@
                 {% if session.user|lower == recipe.created_by|lower %}
                 <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small blue accent-3">Edit</a>
                 <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small red accent-4">Delete</a>
+                <a href="{{ url_for('add_favourites', recipe_id=recipe._id) }}" class="btn-small green accent-4">Add to
+                    My Recipes</a>
                 {% endif %}
             </div>
         </div>
@@ -26,7 +28,7 @@
             <div class="col s12 m4 center-align recipe-icon">
                 <i class="fas fa-clock"></i>
                 Time needed
-                <div>{{ recipe.recipe_time }}</div>
+                <div>{{ recipe.recipe_time }} minutes</div>
             </div>
             <div class="col s12 m4 center-align recipe-icon">
                 <i class="fas fa-hamburger"></i>
@@ -45,7 +47,7 @@
                 <h4 class="recipe-title">Ingredients</h4>
                 {% for ingredient in recipe.recipe_ingredients %}
                     <div>
-                        <ul>
+                        <ul class="ing-list"></ul>
                             <li>{{ ingredient }}</li>
                         </ul>
                     </div>
@@ -56,7 +58,7 @@
                 <h4 class="recipe-title">Utensils</h4>
                 {% for tools in recipe.recipe_tools %}
                 <div>
-                    <ul>
+                    <ul class="ing-list"></ul>
                         <li>{{ tools }}</li>
                     </ul>
                 </div>
@@ -70,9 +72,9 @@
                 <h4 class="recipe-title">Instructions</h4>
                  {% for instruction in recipe.recipe_instructions %}
                  <div>
-                     <ul>
+                     <ol></ol>
                          <li>{{ instruction }}</li>
-                     </ul>
+                     </ol>
                  </div>
                  {% endfor %}
             </div>

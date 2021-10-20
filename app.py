@@ -19,12 +19,20 @@ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
 # get recipes list form db
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
+
+
+@app.route("/get_user_recipes")
+def get_user_recipes():
+    user_recipes = list(mongo.db.user_recipes.find())
+    return render_template("my_recipes.html", user_recipes=user_recipes)
+
 
 # search recipes
 @app.route("/search", methods=["GET", "POST"])
@@ -82,12 +90,13 @@ def login():
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
-            # if user details are incorrect flash message 
+            # if user details are incorrect flash message
         else:
             flash("Incorrect Username and/or Password")
             return redirect(url_for("login"))
 
     return render_template("login.html")
+
 
 # show user profile when logged in
 @app.route("/my_recipes/<username>", methods=["GET", "POST"])
@@ -96,10 +105,40 @@ def my_recipes(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
+    favourites = list(mongo.db.favourites.find(
+        {"username": session["user"]}))
+
     if session["user"]:
-        return render_template("my_recipes.html", username=username)
-    
+
+        return render_template(
+            "my_recipes.html", username=username, favourites=favourites)
+
     return redirect(url_for("login"))
+
+
+@app.route("/add_favourites/<recipe_id>", methods=["GET", "POST"])
+def add_favourites(recipe_id):
+
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if request == "POST":
+        recipe = mongo.db.recipes.find_one({"id": ObjectId(recipe_id)})
+        recipe_name = recipe["recipe_name"],
+        recipe_description = recipe["recipe_description"]
+    
+        info = {
+            "recipe_id": recipe_id,
+            "recipe_name": recipe_name,
+            "recipe_description": recipe_description,
+            "username": username
+        }
+        mongo.db.favourites.insert_one(info)
+        flash("Recipe saved to favourites")
+
+    return redirect(url_for(
+        "my_recipes", username=username, recipe_id=recipe_id))
+
 
 # log user out by ending session
 @app.route("/logout")
@@ -160,10 +199,14 @@ def edit_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     cuisine = mongo.db.cuisine.find().sort("cuisine_type", 1)
     instruction = mongo.db.recipes.find().sort("recipe_instructions", 1)
+    utensils = mongo.db.recipes.find().sort("recipe_tools", 1)
     categories = mongo.db.categories.find()
     return render_template(
-        "edit_recipe.html", recipe=recipe, cuisine=cuisine, categories=categories,
-         instruction=instruction)
+        "edit_recipe.html", recipe=recipe,
+        cuisine=cuisine,
+        categories=categories,
+        utensils=utensils,
+        instruction=instruction)
 
 # delete recipe
 @app.route("/delete_recipe/, <recipe_id>")
