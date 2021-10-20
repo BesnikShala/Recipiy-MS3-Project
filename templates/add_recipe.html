@@ -77,12 +77,16 @@
                     </div>
                     <!-- Instruction Input -->
                     <div class="input-field col s12">
-                        <textarea id="recipe_instructions" name="recipe_instructions" class="materialize-textarea"
-                            required></textarea>
+                        <input id="recipe_instructions" name="recipe_instructions" class="materialize-textarea"
+                            required></input>
                         <label for="recipe_instructions">Instructions</label>
                         <button class="btn add_instruction" type="button">+</button>
                     </div>
                     <div class="new_instruction"></div>
+                    <div class="input-field col s12">
+                        <label for="image_url">upload image</label>
+                        <input id="image_url" name="image_url" type="text" class="validate">
+                    </div>
                     <!-- Submit Button -->
                     <button type="submit" class="col s12 btn-large grey darken-4 text-shadow letter-space register">
                         Submit

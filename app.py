@@ -30,8 +30,8 @@ def get_recipes():
 
 @app.route("/get_user_recipes")
 def get_user_recipes():
-    user_recipes = list(mongo.db.user_recipes.find())
-    return render_template("my_recipes.html", user_recipes=user_recipes)
+    user_recipe = list(mongo.db.recipes.find())
+    return render_template("my_recipes.html", user_recipe=user_recipe)
 
 
 # search recipes
@@ -98,48 +98,6 @@ def login():
     return render_template("login.html")
 
 
-# show user profile when logged in
-@app.route("/my_recipes/<username>", methods=["GET", "POST"])
-def my_recipes(username):
-    # get session user details from db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
-    favourites = list(mongo.db.favourites.find(
-        {"username": session["user"]}))
-
-    if session["user"]:
-
-        return render_template(
-            "my_recipes.html", username=username, favourites=favourites)
-
-    return redirect(url_for("login"))
-
-
-@app.route("/add_favourites/<recipe_id>", methods=["GET", "POST"])
-def add_favourites(recipe_id):
-
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
-    if request == "POST":
-        recipe = mongo.db.recipes.find_one({"id": ObjectId(recipe_id)})
-        recipe_name = recipe["recipe_name"],
-        recipe_description = recipe["recipe_description"]
-    
-        info = {
-            "recipe_id": recipe_id,
-            "recipe_name": recipe_name,
-            "recipe_description": recipe_description,
-            "username": username
-        }
-        mongo.db.favourites.insert_one(info)
-        flash("Recipe saved to favourites")
-
-    return redirect(url_for(
-        "my_recipes", username=username, recipe_id=recipe_id))
-
-
 # log user out by ending session
 @app.route("/logout")
 def logout():
@@ -161,7 +119,8 @@ def add_recipe():
             "recipe_ingredients": request.form.getlist("recipe_ingredients"),
             "recipe_type": request.form.get("recipe_type"),
             "created_by": session["user"],
-            "allergens": request.form.get("allergens")
+            "allergens": request.form.get("allergens"),
+            "image_url": request.form.get("image_url")
         }
 
         newID = mongo.db.recipes.insert_one(recipe)
@@ -207,6 +166,47 @@ def edit_recipe(recipe_id):
         categories=categories,
         utensils=utensils,
         instruction=instruction)
+
+
+# show user profile when logged in
+@app.route("/my_recipes/<username>", methods=["GET", "POST"])
+def my_recipes(username):
+    # get session user details from db
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    favourites = list(mongo.db.favourites.find(
+        {"username": session["user"]}))
+
+    if session["user"]:
+        return render_template(
+            "my_recipes.html", username=username, favourites=favourites)
+
+    return redirect(url_for("login"))
+
+
+@app.route("/add_favourites/<recipe_id>", methods=["GET", "POST"])
+def add_favourites(recipe_id):
+
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if request == "POST":
+        recipe = mongo.db.recipes.find_one({"id": ObjectId(recipe_id)})
+        recipe_name = recipe["recipe_name"],
+        recipe_description = recipe["recipe_description"]
+    
+        info = {
+            "recipe_id": recipe_id,
+            "recipe_name": recipe_name,
+            "recipe_description": recipe_description,
+            "username": username
+        }
+        mongo.db.favourites.insert_one(info)
+        flash("Recipe saved to favourites")
+
+    return redirect(url_for(
+        "my_recipes", username=username, recipe_id=recipe_id))
 
 # delete recipe
 @app.route("/delete_recipe/, <recipe_id>")
