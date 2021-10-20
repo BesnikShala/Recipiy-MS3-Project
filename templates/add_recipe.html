@@ -39,10 +39,9 @@
                     <div class="input-field col s12 m6">
                         <select>
                             <option value="" disabled selected></option>
-                            <option value="1">Breakfast</option>
-                            <option value="2">Lunch</option>
-                            <option value="3">Dinner</option>
-                            <option value="3">Dessert</option>
+                            {% for category in categories %}
+                            <option value="{{ category.recipe_type }}">{{ category.recipe_type }}</option>
+                            {% endfor %}
                         </select>
                         <label>Recipe Type</label>
                     </div>

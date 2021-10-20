@@ -133,8 +133,9 @@ def add_recipe():
         return redirect(url_for("view_recipe", recipe_id=newID.inserted_id))
     cuisine = mongo.db.cuisine.find().sort("cuisine_type", 1)
     instruction = mongo.db.recipes.find().sort("recipe_instructions", 1)
+    categories = mongo.db.categories.find().sort("recipe_type", 1)
     return render_template(
-        "add_recipe.html", cuisine=cuisine, instruction=instruction)
+        "add_recipe.html", cuisine=cuisine, instruction=instruction, categories=categories)
 
 # edit recipe details
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
@@ -150,7 +151,8 @@ def edit_recipe(recipe_id):
             "recipe_ingredients": request.form.getlist("recipe_ingredients"),
             "recipe_type": request.form.get("recipe_type"),
             "created_by": session["user"],
-            "allergens": request.form.get("allergens")
+            "allergens": request.form.get("allergens"),
+            "image_url": request.form.get("image_url")
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("You're recipe has been successfully Edited!")
@@ -159,7 +161,7 @@ def edit_recipe(recipe_id):
     cuisine = mongo.db.cuisine.find().sort("cuisine_type", 1)
     instruction = mongo.db.recipes.find().sort("recipe_instructions", 1)
     utensils = mongo.db.recipes.find().sort("recipe_tools", 1)
-    categories = mongo.db.categories.find()
+    categories = mongo.db.categories.find().sort("recipe_type", 1)
     return render_template(
         "edit_recipe.html", recipe=recipe,
         cuisine=cuisine,
