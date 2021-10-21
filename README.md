@@ -250,21 +250,64 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
 
 ### As a Returning User:
 
-* I want to be able to securely log into my account
+* I want to be able to securely register and log into my account
+    * Users can rest asured they can register with Recipiy and using password hashing the passwords are more secure. The user also is prompted to 
+    confirm their password whilst registering to make sure that they have entered the correct password. Once registered Users can securely log in 
+    and there are security measures to prevent brite force and access to control of their recipes by external users. 
+
+    <img src="./documentation/testing-images/user-story-testing9.jpeg"> | <img src="./documentation/testing-images/user-story-testing10.jpeg"> 
+
 * I want to be able to upload and share my recipe with others on the site
+    * Users have the ability to upload recipes via the add recipe tab which become aavilable once they register. There is a form which needs to be filled
+    accurately and the fields are validated so they cannot be left blank. 
+
+    <img src="./documentation/testing-images/user-story-testing11.jpeg">
+
+
 * I want to be able to edit my recipes if they happen to improve over time
+    Once a user has uploaded a recipe, all other users can view the recipe and save it to their own page. However only the user who created the recipe can
+    edit and make changes to the recipe.
+
+    <img src="./documentation/testing-images/user-story-testing12.jpeg"> | <img src="./documentation/testing-images/user-story-testing13.jpeg">
+
 * I want to be able to delete my recipe at any time
+    Again once a user has created a recipe if they wish to remove it for any reason they can do so by clicking on view recipe and click on delete. They
+    will be notified via a flash message that they have `successfully deleted` their recipe. This option is given to the recipe owner only. 
+
+    <img src="./documentation/testing-images/user-story-testing12.jpeg"> | <img src="./documentation/testing-images/user-story-testing14.jpeg">
+
 * I want to be able to have a section of where I can save other users recipes including my own.
+    * Once a user has registered an account they will be directed to their own page caled My Recipes. Here they can view any recipes they have added.
+
 * I want to be able to see if the recipes include any allergens.
+    * Allergies can be very deadly so this is an important feature to include. The users can list allergens whilst uploading their recipies. Other users 
+    who view the recipe can see clearly at the top of the recipe if it contains any allergens.
+
+    <img src="./documentation/testing-images/user-story-testing15.jpeg">
 
 ### As a Site Owner:
 
 * I want to be able to add new collections or pages to the site
+    * As the site owner I can add additional page and functionality to improve the site for users. Initially the view recipe page did no exist in the
+    original wireframes, however it became apparent the information needed cannot be displayed propperly on a card or a modal. This change came to benefit 
+    the users with an easy to read recipe and clear text.
+
 * I want the new collection to be added to the appropriate areas whether it is home page or within users displayed pages.
+    * Any new collection made on the database can be implemented within the form and display areas of the site. Existing recipes would need to be updated in order to display such information. This can easily be done by the user or the admin.
+
 * I want to be able to edit or delete any pre-existing collections.
+    The collection within the database are subject to change and can be taken out from the site and the database. Admin will have access to all recipes and control on the site. 
+
 * I want to be able to edit any promotions or advertising on the site at any time.
-* I want my users to be informed correctly if any allergens are present in the recipes. 
+    * This feature was placed into features left to implement as this is a future feature to be added to make the site have more of a realworld application.
+    Users would have been able to see promotion on cooking utensils. Due to a time management decision this feature would be better used in the next project. 
+
+* I want my users to be informed correctly if any allergens are present in the recipes.
+    * The recipe form is required to have the allergens form filled. The information is displayed at the top of the recipe and should be very visible and clear 
+    for all users to read. The admin will be able to make a change if this has not been filled in correctly. 
+
 * I want to encourage everyday usage of the site, something which can be used by people frequently.
+    * Site owner aim is to have users use this site for everyday use if they are cooking for family or friends or if they are trying to learn how to cook. It is also for people who just want to save their own recipes which they might have on scraps of paper or books. The aim is for the site to be used by a wide range of audience. 
 
 
 ## Deployment

@@ -32,20 +32,25 @@
     <!-- dispay recipe time, type and cuisine -->
     <div class="container">
         <div class="row view-recipe">
-            <div class="col s12 m4 center-align recipe-icon">
+            <div class="col s12 m3 center-align recipe-icon">
                 <i class="fas fa-clock"></i>
                 Time needed
                 <div>{{ recipe.recipe_time }} minutes</div>
             </div>
-            <div class="col s12 m4 center-align recipe-icon">
+            <div class="col s12 m3 center-align recipe-icon">
                 <i class="fas fa-hamburger"></i>
                 Type of Recipe
                 <div>{{ recipe.recipe_type }}</div>
             </div>
-            <div class="col s12 m4 center-align recipe-icon">
+            <div class="col s12 m3 center-align recipe-icon">
                 <i class="fas fa-globe-americas"></i>
                 Cuisine
                 <div>{{ recipe.cuisine_type }}</div>
+            </div>
+            <div class="col s12 m3 center-align recipe-icon">
+                <i class="fas fa-allergies"></i>
+                Allergens
+                <div>{{ recipe.allergens }}</div>
             </div>
         </div>
         <!-- iterate ingredients from recipe -->

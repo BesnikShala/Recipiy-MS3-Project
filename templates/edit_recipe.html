@@ -93,15 +93,11 @@
                         <label for="recipe_time">Time Required</label>
                     </div>
                     <!-- Allergens -->
-                    <div class="input-field col s12 m6">
-                        <select>
-                            <option value="" disabled selected></option>
-                            <option value="1">Nuts</option>
-                            <option value="2">Shellfish</option>
-                            <option value="3">Dairy</option>
-                        </select>
-                        <label>Alergens</label>
-                    </div>
+                   <div class="input-field col s12 m6">
+                       <input id="allergens" name="allergens" type="text" value="{{ recipe.allergens }}"
+                           class="validate" required>
+                       <label for="allergens">Allergens</label>
+                   </div>
                     <!-- Instruction Input -->
                     {% for instructions in recipe.recipe_instructions %}
                     <!-- loop and display individual instructions -->
