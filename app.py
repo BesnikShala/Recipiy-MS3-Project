@@ -146,8 +146,9 @@ def add_recipe():
         return redirect(url_for("view_recipe", recipe_id=newID.inserted_id))
     cuisine = mongo.db.cuisine.find().sort("cuisine_type", 1)
     instruction = mongo.db.recipes.find().sort("recipe_instructions", 1)
+    categories = mongo.db.categories.find().sort("recipe_type", 1)
     return render_template(
-        "add_recipe.html", cuisine=cuisine, instruction=instruction)
+        "add_recipe.html", cuisine=cuisine, instruction=instruction, categories=categories)
 
 # edit recipe details
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
@@ -206,14 +207,14 @@ def add_favourites(recipe_id):
 
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-
+    
     print(username)
     print(request)
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     print(recipe)
-    recipe_name = recipe["recipe_name"],
-    recipe_description = recipe["recipe_description"],
+    recipe_name = "".join(recipe["recipe_name"]),
+    recipe_description = "".join(recipe["recipe_description"]),
     image_url = recipe["image_url"]
     
     info = {
@@ -242,6 +243,7 @@ def delete_recipe(recipe_id):
 @app.route("/view_recipe/<recipe_id>") 
 def view_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    print(recipe)
     return render_template("view_recipe.html", recipe=recipe)
 
 

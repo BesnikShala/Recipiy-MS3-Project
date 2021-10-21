@@ -22,14 +22,19 @@
                              src="{{ favourite.image_url }}">
                      </div>
                      <div class="card-content">
-                         <span class="card-title activator grey-text text-darken-4">{{ favourite.recipe_name }}<i
+                         {% for name in favourite.recipe_name %}
+                         <span class="card-title activator grey-text text-darken-4">{{ name }}<i
                                  class="fas fa-plus-square right"></i></span>
-                         
+                         {% endfor %}
                      </div>
                      <div class="card-reveal">
-                         <span class="card-title grey-text text-darken-4">{{ favourite.recipe_name }}<i
+                         {% for name in favourite.recipe_name %}
+                         <span class="card-title grey-text text-darken-4">{{ name }}<i
                                  class="fas fa-times-circle right"></i></span>
-                         <p>{{ favourite.recipe_description }}</p>
+                         {% endfor %}
+                         {% for recipe in favourite.recipe_ingredient %}
+                         <p>{{ recipe }}</p>
+                         {% endfor %}
                      </div>
                  </div>
              </div>

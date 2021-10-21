@@ -18,7 +18,7 @@
                 {% endif %}
                 {% if session.user %}
                 <a href="{{ url_for('add_favourites', recipe_id=recipe._id) }}"
-                    class="btn-small red accent-4">add to favs</a>
+                    class="btn-small green accent-4">add to My Recipes</a>
                 <!-- <form method="POST" action="{{ url_for('add_favourites', recipe_id=recipe._id) }}">
                     <button class="btn-small green accent-4" type="submit">
                   Add to My Recipes

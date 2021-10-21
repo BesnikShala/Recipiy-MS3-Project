@@ -41,7 +41,7 @@
                         <label for="cuisine_type">Cuisine</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <select>
+                        <select id="recipe_type" name="recipe_type">
                             <option value="" disabled></option>
                             <!-- loop and display options from db -->
                             {% for category in categories %}
@@ -52,7 +52,7 @@
                                 {% endif %}
                             {% endfor %}
                         </select>
-                        <label>Recipe Type</label>
+                        <label for="recipe_type">Recipe Type</label>
                     </div>
                     <!-- Ingredients Input -->
                         {% for ingredient in recipe.recipe_ingredients %}

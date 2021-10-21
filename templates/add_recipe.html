@@ -37,13 +37,13 @@
                         <label for="cuisine_type">Cuisine</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <select>
+                        <select id="recipe_type" name="recipe_type">
                             <option value="" disabled selected></option>
                             {% for category in categories %}
                             <option value="{{ category.recipe_type }}">{{ category.recipe_type }}</option>
                             {% endfor %}
                         </select>
-                        <label>Recipe Type</label>
+                        <label for="recipe_type">Recipe Type</label>
                     </div>
                     <!-- Ingredients Input -->
                     <div class="input-field col s12 ">
