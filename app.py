@@ -4,6 +4,7 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from functools import wraps
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
@@ -19,6 +20,16 @@ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 
 mongo = PyMongo(app)
 
+
+def login_required(f):
+    @wraps(f)
+    def wrap(*args, **kwargs):
+        if 'user' in session:
+            return f(*args, **kwargs)
+        else:
+            flash("You need to log in first!")
+            return redirect(url_for("login"))
+    return wrap
 
 # get recipes list form db
 @app.route("/")
@@ -100,6 +111,7 @@ def login():
 
 # log user out by ending session
 @app.route("/logout")
+@login_required
 def logout():
     flash("You have logged out")
     session.pop("user")
@@ -107,6 +119,7 @@ def logout():
 
 # add recipe
 @app.route("/add_recipe", methods=["GET", "POST"])
+@login_required
 def add_recipe():
     if request.method == "POST":
         recipe = {
@@ -133,12 +146,12 @@ def add_recipe():
         return redirect(url_for("view_recipe", recipe_id=newID.inserted_id))
     cuisine = mongo.db.cuisine.find().sort("cuisine_type", 1)
     instruction = mongo.db.recipes.find().sort("recipe_instructions", 1)
-    categories = mongo.db.categories.find().sort("recipe_type", 1)
     return render_template(
-        "add_recipe.html", cuisine=cuisine, instruction=instruction, categories=categories)
+        "add_recipe.html", cuisine=cuisine, instruction=instruction)
 
 # edit recipe details
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
+@login_required
 def edit_recipe(recipe_id):
     if request.method == "POST":
         submit = {
@@ -172,6 +185,7 @@ def edit_recipe(recipe_id):
 
 # show user profile when logged in
 @app.route("/my_recipes/<username>", methods=["GET", "POST"])
+@login_required
 def my_recipes(username):
     # get session user details from db
     username = mongo.db.users.find_one(
@@ -212,6 +226,7 @@ def add_favourites(recipe_id):
 
 # delete recipe
 @app.route("/delete_recipe/, <recipe_id>")
+@login_required
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("You have successfully delteted your recipe")
