@@ -323,7 +323,7 @@ In order to implement this project on Heroku I used the following steps.
 
 1. requirements.txt and procfile will need to be installed in order to have the required dependencies. A Procfile will also need to be 
 created to tell Heroku which type of application is being deployed and how to process it. the following commands are:
-    * çpip3 freeze --local > requirements.txt`
+    * `pip3 freeze --local > requirements.txt`
     * `echo web: python run.py > Procfile`
 
 2. [Heroku](https://dashboard.heroku.com) is free to sign up and use. You can easily create an account and then create your project app. 
