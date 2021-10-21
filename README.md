@@ -279,6 +279,29 @@ a port 5000 which you can then open the browser to view content.
 
 ### Remote Deployment
 
+In order to implement this project on Heroku I used the following steps. 
+
+1. requirements.txt and procfile will need to be installed in order to have the required dependencies. A Procfile will also need to be 
+created to tell Heroku which type of application is being deployed and how to process it. the following commands are:
+    * çpip3 freeze --local > requirements.txt`
+    * `echo web: python run.py > Procfile`
+
+2. [Heroku](https://dashboard.heroku.com) is free to sign up and use. You can easily create an account and then create your project app. 
+The third tab is labelled 'deploy' where you can connect your GitHub repoistory directly to Heroku. You can then click 'Enable Automatic Deploys'
+once you make a commit on to GitHub this will then automatically make the changes to your Heroku App.
+
+3. The next step is to click on 'settings' tab and half way down you will see 'Reveal Config Vars', you can then configure the environmental 
+variables as shown:
+
+    * IP: `0.0.0.0`
+    * PORT: `5000`
+    * MONGO_DBNAME: `<Your project name which you entered when creating the app>`
+    * MONGO_URI: `<Your unique and private link to MongoDB> - You will need to alter the username/password on the link as the fields are not filled.`
+    * SECRET_KEY: `<You can make your own random secret key or use an online generator>`
+
+4. Once you save the changes you can click hide config vars and your app should be successfully deployed to Heroku.
+
+
 ## Credits
 
 
