@@ -17,11 +17,13 @@
                 <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small red accent-4">Delete</a>
                 {% endif %}
                 {% if session.user %}
-                <form method="POST" action="{{ url_for('add_favourites', recipe_id=recipe._id) }}">
+                <a href="{{ url_for('add_favourites', recipe_id=recipe._id) }}"
+                    class="btn-small red accent-4">add to favs</a>
+                <!-- <form method="POST" action="{{ url_for('add_favourites', recipe_id=recipe._id) }}">
                     <button class="btn-small green accent-4" type="submit">
                   Add to My Recipes
                     </button>
-                </form>
+                </form> -->
                 {% endif %}
             </div>
         </div>

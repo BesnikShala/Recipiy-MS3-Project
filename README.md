@@ -87,7 +87,6 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
       page. The images and the information needs to take center stage in my opinion which is the reasoning behind the styling and imagery. The 
       food needs to be attractive and presentable and then the information needs to stand out and be easy to read and follow. 
 
-##
 
 * Wireframes
 
@@ -101,6 +100,10 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
 
     <a name="wireframe"></a>
 
+## Database Schema
+
+<img src="./static/images/db-schema.jpeg">
+
 ## Features
 
 * Register an Account with Recipiy
@@ -111,7 +114,7 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
 
 * Log In and Out of Recipiy 
 
-    * Once a user has created an account they can log in and out of their account easily. They are npotified if they have incorrectly entered a 
+    * Once a user has created an account they can log in and out of their account easily. They are notified if they have incorrectly entered a 
     password or username. The message does not hint whether the username or password is incorrect for anyone trying to hack another user's details.
 
 [CRUD] Features Implemented
