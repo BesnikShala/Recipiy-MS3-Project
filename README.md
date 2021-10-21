@@ -206,14 +206,47 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
 #### As a Returning User:
 
 * I want to be able to visit the site without having to register an account to view recipes.
+    * Users have the ability to view the site content for free and are not forced to register in order to do so. This can put many potential
+    long term users off. As can be seen from the image the site offers users ability to view recipes.
 
+    <img src="./documentation/testing-images/user-story-test.jpeg">
 
 * I want to have a reason of why I would want to register an account.
+    * The users are met with a welcome banner under the hero image and above the recipe cards. It states users are welcome to use the site and
+    if they wish to they can sign up in order to be able to upload or save recipes to their own page. 
+
+    <img src="./documentation/testing-images/user-story-testing2.jpeg">
+
 * I want to be able to search for specific recipes if they exist.
+    * Users have the ability to search for recipes on the main page of the site. They do not need to have an account and can search by ingredient
+    or recipe name. 
+
+     <img src="./documentation/testing-images/user-story-testing3.jpeg">
+
 * I want to be able to navigate easily through the site.
+    * Users are able to navigate through the site using the navbar at the top which becomes a burger icon when viewed on other devices. The navigation
+    is very simple as a user will not have as many tabs if they are not registered. They can register, log in or go to homepage. 
+
+    <img src="./documentation/testing-images/user-story-testing4.jpeg"> 
+
 * I want to be able to view this site on any device.
+    * The site is fully responsive and can be viewed on desktop, tablet or mobile. This is tested on all three versions and users will be able to view
+    recipes at any time on any device.
+
+    <img src="./documentation/testing-images/user-story-testing5.jpeg"> | <img src="./documentation/testing-images/user-story-testing6.jpeg"> 
+    
+
 * I want to search for specific ingredients within recipes.
+    * Users can search via recipe name or by recipe ingredient if they cannot find exactly what they are looking for. 
+
+    <img src="./documentation/testing-images/user-story-testing7.jpeg"> 
+
 * I want to be able to view a range of different recipes.
+    * There are 4 different cuisine types with recipes from around the world. There will be plenty of range for recipes for users to choose from.
+    The best thing is users can use this to upload their own recipes from their culture/background or even a recipe which they have developed and 
+    made theirs over time. 
+
+    <img src="./documentation/testing-images/user-story-testing8.jpeg"> 
 
 ### As a Returning User:
 
