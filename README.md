@@ -166,7 +166,7 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
     * [Heroku](https://dashboard.heroku.com/apps) - Used for App hosting. 
 
 * Python
-    * [Python 3.10](https://www.python.org/downloads/) - Used as base back-end prgramming language.
+    * [Python 3.8.12](https://www.python.org/downloads/) - Used as base back-end prgramming language.
     * [MongoDB Atlas](https://www.mongodb.com/) - Used as my database for cloud storage.
     * [PyMongo 3.12.1](https://pypi.org/project/pymongo/) - Used as Python API for MongoDB.
 

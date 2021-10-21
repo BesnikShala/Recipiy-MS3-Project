@@ -207,16 +207,23 @@ def add_favourites(recipe_id):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
 
-    if request == "POST":
-        recipe = mongo.db.recipes.find_one({"id": ObjectId(recipe_id)})
+    print(username)
+    print(request)
+    
+
+    if request.method == "POST":
+        recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+        print(recipe)
         recipe_name = recipe["recipe_name"],
-        recipe_description = recipe["recipe_description"]
+        recipe_description = recipe["recipe_description"],
+        image_url = recipe["image_url"]
     
         info = {
             "recipe_id": recipe_id,
             "recipe_name": recipe_name,
             "recipe_description": recipe_description,
-            "username": username
+            "username": username,
+            "image_url": image_url
         }
         mongo.db.favourites.insert_one(info)
         flash("Recipe saved to favourites")
