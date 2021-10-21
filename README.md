@@ -100,6 +100,13 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
 
     <a name="wireframe"></a>
 
+    <img src="./documentation/Wireframes/home-wireframe.jpeg">
+    <img src="./documentation/Wireframes/register-wireframe.jpeg">
+    <img src="./documentation/Wireframes/login-wireframe.jpeg">
+    <img src="./documentation/Wireframes/upload-wireframe.jpeg">
+    <img src="./documentation/Wireframes/favourite-wireframe.jpeg">
+    
+
 ## Database Schema
 
 <img src="./static/images/db-schema.jpeg">
@@ -193,6 +200,8 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
     * [PyMongo 3.12.1](https://pypi.org/project/pymongo/) - Used as Python API for MongoDB.
 
 ## Testing
+
+
 
 ## Deployment
 
