@@ -28,7 +28,7 @@
                     </div>
                     <!-- Cuisine Input -->
                     <div class="input-field col s12 m6">
-                        <select id="cuisine_type" name="cuisine_type">
+                        <select id="cuisine_type" name="cuisine_type" required>
                             <option value="" disabled selected></option>
                             {% for cuisines in cuisine %}
                             <option value="{{ cuisines.cuisine_type }}">{{ cuisines.cuisine_type }}</option>
@@ -37,7 +37,7 @@
                         <label for="cuisine_type">Cuisine</label>
                     </div>
                     <div class="input-field col s12 m6">
-                        <select id="recipe_type" name="recipe_type">
+                        <select id="recipe_type" name="recipe_type" required>
                             <option value="" disabled selected></option>
                             {% for category in categories %}
                             <option value="{{ category.recipe_type }}">{{ category.recipe_type }}</option>
@@ -66,7 +66,7 @@
                     </div>
                     <!-- Allergens -->
                     <div class="input-field col s12 m6">
-                        <select id="allergens" name="allergens">
+                        <select id="allergens" name="allergens" required>
                             <option value="" disabled selected></option>
                             <option value="1">Nuts</option>
                             <option value="2">Shellfish</option>
