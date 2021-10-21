@@ -60,24 +60,19 @@
                     </div>
                     <div class="new_utensil"></div>
                     <!-- Time Input -->
-                    <div class="input-field col s12 m6">
-                        <input id="recipe_time" name="recipe_time" type="text" class="validate">
+                   <div class="input-field col s12 m6">
+                        <input id="recipe_time" name="recipe_time" type="text" class="validate" required>
                         <label for="recipe_time">Time Required</label>
                     </div>
                     <!-- Allergens -->
                     <div class="input-field col s12 m6">
-                        <select id="allergens" name="allergens" required>
-                            <option value="" disabled selected></option>
-                            <option value="1">Nuts</option>
-                            <option value="2">Shellfish</option>
-                            <option value="3">Dairy</option>
-                        </select>
+                        <input id="allergens" name="allergens" type="text" class="validate" required>
                         <label for="allergens">Allergens</label>
                     </div>
                     <!-- Instruction Input -->
                     <div class="input-field col s12">
-                        <input id="recipe_instructions" name="recipe_instructions" class="materialize-textarea"
-                            required></input>
+                        <input id="recipe_instructions" name="recipe_instructions" type="text" class="validate"
+                            required>
                         <label for="recipe_instructions">Instructions</label>
                         <button class="btn add_instruction" type="button">+</button>
                     </div>
@@ -86,6 +81,7 @@
                         <label for="image_url">upload image</label>
                         <input id="image_url" name="image_url" type="text" class="validate">
                     </div>
+                    <p>Please paste images address/url to upload an image of your choice</p>
                     <!-- Submit Button -->
                     <button type="submit" class="col s12 btn-large grey darken-4 text-shadow letter-space register">
                         Submit
