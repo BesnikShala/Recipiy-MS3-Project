@@ -59,10 +59,22 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
 
 ## Design
 
+<img src="./static/images/colour-scheme.jpeg">
+
 * Colour Scheme
     * I have kept a very simple and clean look to the page with not much colour. This is very common and wide spread with many recipe sites.
     The simplicity means users can focus on the imagery and then also on the information. I have used a white background to enforce this as
     it emphasises on the imagery and the information displayed. 
+
+* Typography
+    * I have used google fonts for this project again and the main font I have chosen is 'Lato'. This is for the simplicity and readability
+    of the font. It is very clear and easy to read especially when using letter spacing as the text sits very well when centered. The other
+    font used is Sans Serif, however this is a fallback font just incase google fonts cannot load. Again Sans Serif is widely used and very
+    simple and easy to read. As this is mainly a recipe app and want to be able to easily read the information being given. 
+
+* Icons
+    * Font Awesome 5.13.1 - I chose to use Font Awesone Icons instead of the Materialise Icons due to there being much more range and options.
+    They are also better to target and style. They are also responsive on all screensizes. 
 
 * Imagery
     * The imagery used by myself are mainly professional images taken from pixels and unsplash. The users have the option to upload their own
@@ -78,12 +90,14 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
 ##
 
 * Wireframes
-    The wireframes provided are designed for computer, tablet and Mobile displays. The simplicity of layout doesn't offer much differences between
+
+    * The wireframes provided are designed for computer, tablet and Mobile displays. The simplicity of layout doesn't offer much differences between
     and tablet. The wireframe initial design changed slightly as I realised the main home page cards were too small/clutered to hold all the
     information of the recipes and images. A new page was created to house these when a user chooses to view the recipe via a link. The form and
     registration pages also have minor changes from the intitial design. 
+
     
-    * View all Wireframes [Here]()
+    * View all Wireframes [Here](https://github.com/BesnikShala/Recipiy-MS3-Project/tree/main/documentation/Wireframes)
 
     <a name="wireframe"></a>
 
