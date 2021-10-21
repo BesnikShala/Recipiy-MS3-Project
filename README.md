@@ -156,6 +156,11 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
     * Users who have logged in will be able to add recipes to their profile page under tab 'My Recipes'. This is to give users the ability to save 
     somthingand not have to search for it in the main page. They have access to it on their own page.
 
+* Optional feature of Promotion
+
+    * Users will be able to see recommended cooking utensils as an extra feature, this would open a new external page and direct users to an external
+    site to view/buy the utensils. 
+
 ## Technologies 
 
 * [GitHub](https://github.com/) - Used as remote storage of code.
@@ -215,7 +220,8 @@ copy the link from the drop down and entering it into the Git CLI terminal:
     * git clone `https://github.com/BesnikShala/Recipiy-MS3-Project.git`.
 
 * Once this has been done the files will unpack and you should then create a `.env` file which will house your sensitive
-data such as the MONGO_URI and SECRET_KEY. (If you use Gitpod full template most of these will already be ready to use)
+data such as the MONGO_URI and SECRET_KEY. (If you use [Gitpod full template](https://github.com/Code-Institute-Org/gitpod-full-template) 
+most of these will already be ready to use)
 
 * You will then need to install all requirements from the requirements.txt file using the following command: 
     * `pip3 -r requirements.txt`.
@@ -268,12 +274,10 @@ username: <string>
 image_url: <string>
 ```
 
-* Once these have been added you can then run the program via python3 app.py if you are using gitpod IDE. This should open
+* Once these have been added you can then run the program via python3 `app.py` if you are using gitpod IDE. This should open
 a port 5000 which you can then open the browser to view content. 
 
-
-
-
+### Remote Deployment
 
 ## Credits
 
