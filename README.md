@@ -191,6 +191,90 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
 
 ## Deployment
 
+### Local Deployment
+
+Note - To run this project locally on your own system you must have the following installed in order to do so:
+
+* [Python 3](https://www.python.org/) - Core code to run the application.
+
+* [Pip](https://pip.pypa.io/en/stable/) - Install app requirements.
+
+* [VS Code](https://code.visualstudio.com/) - An IDE of your choice.
+
+* [GIT](https://www.atlassian.com/git/tutorials/install-git) - For cloning and version control.
+
+* [MongoDB](https://www.mongodb.com/) - You will need your own database on MongoDB Atlas. 
+
+
+You will then need to clone the repository via the following steps:
+
+* Clone the repository via GitHub by clicking on the green button on the right hand side. You also have the option to
+click on the drop down button named 'Code' and select download zip file (remembering to unzip it first). You can also
+copy the link from the drop down and entering it into the Git CLI terminal:
+
+    * git clone `https://github.com/BesnikShala/Recipiy-MS3-Project.git`.
+
+* Once this has been done the files will unpack and you should then create a `.env` file which will house your sensitive
+data such as the MONGO_URI and SECRET_KEY. (If you use Gitpod full template most of these will already be ready to use)
+
+* You will then need to install all requirements from the requirements.txt file using the following command: 
+    * `pip3 -r requirements.txt`.
+
+* If you do not have a MongoDB account you can sign up for free. Once you have done this you will need to create a new 
+Database. The following collections will need to be created in order for the app to function. 
+
+#### USERS
+```
+_id: <ObjectId>
+username: <string>
+password: <string>
+```
+
+#### RECIPES
+```
+_id: <ObjectId>
+cuisine_type: <string>
+recipe_name: <string>
+recipe_description: <string>
+recipe_time: <int32
+recipe_tools: <array>
+recipe_instructions: <array>
+recipe_ingredients: <array>
+recipe_type: <array>
+created_by: <string>
+allergens: <array>
+image_url: <string>
+```
+
+#### CATEGORIES
+```
+_id: <ObjectId>
+recipe_type: <string>
+```
+
+#### CUISINE
+```
+_id: <ObjectId>
+cuisine_type: <string>
+```
+
+#### FAVOURITES
+```
+_id: <ObjectId>
+recipe_id: <string>
+recipe_name: <string>
+recipe_description: <array>
+username: <string>
+image_url: <string>
+```
+
+* Once these have been added you can then run the program via python3 app.py if you are using gitpod IDE. This should open
+a port 5000 which you can then open the browser to view content. 
+
+
+
+
+
 ## Credits
 
 
