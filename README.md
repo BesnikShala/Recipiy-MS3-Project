@@ -134,11 +134,41 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
 
 ## Features Left to Implement
 
-## Technologies Used
+* Add Recipes to Favourites/My Recipes
+
+    * Users who have logged in will be able to add recipes to their profile page under tab 'My Recipes'. This is to give users the ability to save 
+    somthingand not have to search for it in the main page. They have access to it on their own page.
+
+## Technologies 
+
+* [GitHub](https://github.com/) - Used as remote storage of code.
+* [VS Code](https://code.visualstudio.com/) - Used as primary IDE for coding via Gitpod.  
 
 ### Front-End Technologies
 
+* [HTML5](https://developer.mozilla.org/en-US/docs/Glossary/HTML5) - Base language used for markup text
+
+* [CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS) - Base language used for cascading styles
+
+* [JQuery 3.6.0](https://blog.jquery.com/2021/03/02/jquery-3-6-0-released/) - Used as primary JavaScript functionality
+
+* [Materialize 1.0.0](https://materializecss.com/) - Used as design framework to increase functionality and efficiency
+
+
 ### Back-End Technologies
+
+* Flask
+    * [Flask 2.0.x](https://flask.palletsprojects.com/en/2.0.x/) - Used as microframework.
+    * [Jinja 3.0.x](https://jinja.palletsprojects.com/en/3.0.x/api/) - Used for Flask templating.
+    * [Werkzeug 2.0.x](https://werkzeug.palletsprojects.com/en/2.0.x/) - Used for password hashing, authorization and authentication.
+
+* Heroku
+    * [Heroku](https://dashboard.heroku.com/apps) - Used for App hosting. 
+
+* Python
+    * [Python 3.10](https://www.python.org/downloads/) - Used as base back-end prgramming language.
+    * [MongoDB Atlas](https://www.mongodb.com/) - Used as my database for cloud storage.
+    * [PyMongo 3.12.1](https://pypi.org/project/pymongo/) - Used as Python API for MongoDB.
 
 ## Testing
 
