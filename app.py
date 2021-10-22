@@ -141,7 +141,7 @@ def add_recipe():
         mongo.db.users.update_one(
             {"username": session["user"]},
             {"$push": {"user_recipes": newID.inserted_id}})
-        flash("added to my recipes")
+        flash("You have successfully added your recipe")
 
         return redirect(url_for("view_recipe", recipe_id=newID.inserted_id))
     cuisine = mongo.db.cuisine.find().sort("cuisine_type", 1)
