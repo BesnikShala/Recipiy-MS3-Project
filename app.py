@@ -21,7 +21,12 @@ app.config["SECRET_KEY"] = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
+# https://pythonprogramming.net/decorator-wrappers-flask-tutorial-login-required
 def login_required(f):
+    """
+    Decorator function which makes sure user is in session
+    in order to access the wrapped function
+    """
     @wraps(f)
     def wrap(*args, **kwargs):
         if 'user' in session:
@@ -36,19 +41,21 @@ def login_required(f):
 @app.route("/")
 @app.route("/get_recipes")
 def get_recipes():
+    """
+    This grabs the information from the database which is housed within the recipes collection.
+    It pulls the data and renders the recipes main page where the cards use the info to display.
+    """
     recipes = list(mongo.db.recipes.find())
     return render_template("recipes.html", recipes=recipes)
-
-
-@app.route("/get_user_recipes")
-def get_user_recipes():
-    user_recipe = list(mongo.db.recipes.find())
-    return render_template("my_recipes.html", user_recipe=user_recipe)
 
 
 # search recipes
 @app.route("/search", methods=["GET", "POST"])
 def search():
+    """
+    text index to search recipes in the database and display
+    to the recipes page.
+    """
     searcher = request.form.get("searcher")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": searcher}}))
     return render_template("recipes.html", recipes=recipes)
@@ -57,6 +64,11 @@ def search():
 # register account
 @app.route("/register", methods=["GET", "POST"])
 def register():
+    """
+    Grabs information via form and posts it to the database.
+    The password and username are checked-hashed and added to the data base.
+    user is directed to thier profile page
+    """
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -88,6 +100,10 @@ def register():
 # login to account
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    """
+    Information is taken from the db to check and log in user.
+    User is redirected if logged in or met with flash warnings for incorrect password/username
+    """
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
             {"username": request.form.get("username").lower()})
@@ -116,6 +132,9 @@ def login():
 @app.route("/logout")
 @login_required
 def logout():
+    """
+    Session user cookie is removed and the user logged out
+    """
     flash("You have logged out")
     session.pop("user")
     return redirect(url_for("login"))
@@ -125,6 +144,11 @@ def logout():
 @app.route("/add_recipe", methods=["GET", "POST"])
 @login_required
 def add_recipe():
+    """
+    Recipe information is added via form post method,
+    relevant field are filled and the information is rendered
+    in a new template.
+    """
     if request.method == "POST":
         recipe = {
             "cuisine_type": request.form.get("cuisine_type"),
@@ -162,6 +186,10 @@ def add_recipe():
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
 @login_required
 def edit_recipe(recipe_id):
+    """
+    Allows user to view and update recipe details.
+    The user is given the access to edit their chosen recipe via unique id
+    """
     if request.method == "POST":
         submit = {
             "cuisine_type": request.form.get("cuisine_type"),
@@ -196,6 +224,9 @@ def edit_recipe(recipe_id):
 @app.route("/my_recipes/<username>", methods=["GET", "POST"])
 @login_required
 def my_recipes(username):
+    """
+    Users can view saved recipes 
+    """
     # get session user details from db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -212,6 +243,9 @@ def my_recipes(username):
 
 @app.route("/add_favourites/<recipe_id>", methods=["GET", "POST"])
 def add_favourites(recipe_id):
+    """
+    users can add recipes to their favourites/my recipes page
+    """
 
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -237,6 +271,9 @@ def add_favourites(recipe_id):
 
 @app.route("/remove_favourites/, <recipe_id>")
 def remove_favourites(recipe_id):
+    """
+    The user can remove recipe card saved to my recipes/favourites
+    """
 
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
@@ -253,6 +290,9 @@ def remove_favourites(recipe_id):
 @app.route("/delete_recipe/, <recipe_id>")
 @login_required
 def delete_recipe(recipe_id):
+    """
+    User can delete recipe
+    """
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
     flash("You have successfully deleted your recipe")
     return redirect(url_for("get_recipes"))
@@ -261,6 +301,10 @@ def delete_recipe(recipe_id):
 # view recipe details
 @app.route("/view_recipe/<recipe_id>")
 def view_recipe(recipe_id):
+    """
+    Recipies can be viewed and rendered on a page
+    which shows all information.
+    """
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("view_recipe.html", recipe=recipe)
 

@@ -420,6 +420,24 @@ the bottom of the form to post the change or 'CANCEL' to cancel the change. They
 
 <img src="./documentation/testing-images/feature-testing12.jpeg"> 
 
+### Validation Testing
+
+#### HTML
+
+* [W3C HTML Validation](https://validator.w3.org/) - I managed to find one issue on the home page where I had use duplicate id's for the search bar in attempt to override Materialize styling. I had forgotten the id's and this has been corrected. There were many issues with the code but the rest were all to do with Jinja templating syntax which is not compatable with HTML. The majority were missing HTML lang and !DOCTYPE attributes which were all being extended via the base.html using jinja. All of the jinja variables and curly brackets were throwing up errors as these were not recognised as propper code. `{% for recipes %}, {{ recipes }}`. 
+
+#### JavaScript
+
+* View recipe page known issue - Materialize list styling clashed with < ol > element and would not increment numbers. I left the list's < li > outside as the materialize styling would kick in and turn display off. 
+
+* [JShint](https://jshint.com/) - * There are 13 functions in this file. Function with the largest signature take 1 arguments, while the median is 0. Largest function has 15 statements in it, while the median is 3. The most complex function has a cyclomatic complexity value of 3 while the median is 1. 
+
+* 8 Warnings all displaying `'let' is available in ES6 (use 'esversion: 6') or Mozilla JS extensions (use moz)`.
+
+#### Python
+
+* [PEP8 Online](http://pep8online.com/) - All python files are PEP8 compliant
+
 ## Deployment
 
 ### Local Deployment
