@@ -111,6 +111,8 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
 
 <img src="./static/images/db-schema.jpeg">
 
+* Everything in the database is connected to the recipe collection. This is the heart of the data that connects everything else. From here users will be linked to their recipes via the created_by key. They can then choose a list of drop down values from the categories and cuisine collections. They can also add a recipe to the favourites collection which is accessable only for them. 
+
 ## Features
 
 * Register an Account with Recipiy
@@ -161,7 +163,15 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
 * Users who have logged in will be able to add recipes to their profile page under tab 'My Recipes'. This is to give users the ability to save 
     a specific and not have to search for it in the main page. They have access to it on their own page and can also remove or view the recipe.
 
+* Add image via URL
+
+    * Users can upload an image of their recipe by pasting in a url or 'image address' directly into the input field. This will render the image for the card and on the view recipe page. 
+
 ## Features Left to Implement
+
+* Manage Account - Delete/Edit
+
+    * Due to time constraints these will be future features to add. The users should they choose can delete their account if they no longer wish to be registered. The password will also be able to change/update.  
 
 * Optional feature of Promotion
 
@@ -401,6 +411,15 @@ the bottom of the form to post the change or 'CANCEL' to cancel the change. They
 
 <img src="./documentation/testing-images/feature-testing9.jpeg"> 
 <img src="./documentation/testing-images/feature-testing10.jpeg"> 
+
+* **Add image via URL**
+
+    * Users can upload an image of their recipe by pasting in a url or 'image address' directly into the input field. This will render the image for the card and on the view recipe page. 
+
+        * Once a user has filled out their form, before submitting they can upload an image via URL. Once this is done they can press submit on the form and this will then add and image. A message has been placed to notify users to paste in a link to upload an image.
+
+<img src="./documentation/testing-images/feature-testing12.jpeg"> 
+
 ## Deployment
 
 ### Local Deployment
