@@ -1,142 +1,141 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <section class="center-align">
-        <h3>Edit Recipe</h3>
-        <P>Here you can edit your own recipes that you have previously added. </P>
-    </section>
+<section class="center-align">
+    <h3>Edit Recipe</h3>
+    <P>Here you can edit your own recipes that you have previously added. </P>
+</section>
 
-    <div class="parallax-container">
-        <div class="parallax"><img src="/static/images/salad.jpeg"></div>
-    </div>
-    <div class="section white">
-        <div class="row container">
-            <form class="col s12 m8 offset-m2 form" method="POST" action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
-                <div class="row" id="form">
-                    <!-- Recipe Name Input -->
-                    <div class="input-field col s12">
-                        <input id="recipe_name" value="{{ recipe.recipe_name }}" name="recipe_name" type="text"
-                            class="validate" required>
-                        <label for="recipe_name">Recipe Name</label>
-                    </div>
-                    <!-- Description Input -->
-                    <div class="input-field col s12">
-                        <textarea id="recipe_description" name="recipe_description" class="materialize-textarea"
-                            required>{{ recipe.recipe_description }}</textarea>
-                        <label for="recipe_description">Description</label>
-                    </div>
-                    <!-- Cuisine Input -->
-                    <div class="input-field col s12 m6">
-                        <select id="cuisine_type" name="cuisine_type">
-                            <option value="" disabled></option>
-                            <!-- loop and display options from db -->
-                            {% for cuisines in cuisine %}
-                                {% if cuisines.cuisine_type == recipe.cuisine_type %}
-                                    <option value="{{ cuisines.cuisine_type }}" selected>{{ cuisines.cuisine_type}}</option>
-                                {% else %}
-                                    <option value="{{ cuisines.cuisine_type }}">{{ cuisines.cuisine_type }}</option>
-                                {% endif %}
-                            {% endfor %}
-                        </select>
-                        <label for="cuisine_type">Cuisine</label>
-                    </div>
-                    <div class="input-field col s12 m6">
-                        <select id="recipe_type" name="recipe_type">
-                            <option value="" disabled></option>
-                            <!-- loop and display options from db -->
-                            {% for category in categories %}
-                                {% if category.recipe_type == recipe.recipe_type %}
-                                    <option value="{{ category.recipe_type }}" selected>{{ category.recipe_type }}</option>
-                                {% else %}
-                                    <option value="{{ category.recipe_type }}">{{ category.recipe_type }}</option>
-                                {% endif %}
-                            {% endfor %}
-                        </select>
-                        <label for="recipe_type">Recipe Type</label>
-                    </div>
-                    <!-- Ingredients Input -->
-                        {% for ingredient in recipe.recipe_ingredients %}
-                            <!-- loop and display individual ingredients -->
-                            <div class="input-field col s12 m6">
-                                <input id="recipe_ingredients-{{ loop.index }}" name="recipe_ingredients" type="text"
-                                    class="validate" value="{{ ingredient }}" required>
-                                <label for="recipe_ingredients-{{ loop.index }}">Ingredients</label>
-                                <!-- loop index to avoid id duplication -->
-                                {% if loop.index == 1 %}
-                                    <button class="btn add_ingredient" type="button">+</button>
-                                {% else %}
-                                    <button class="btn delete_ingredient" type="button"> - </button>
-                                {% endif %}
-                            </div>
+<div class="parallax-container">
+    <div class="parallax"><img src="/static/images/salad.jpeg"></div>
+</div>
+<div class="section white">
+    <div class="row container">
+        <form class="col s12 m8 offset-m2 form" method="POST"
+            action="{{ url_for('edit_recipe', recipe_id=recipe._id) }}">
+            <div class="row" id="form">
+                <!-- Recipe Name Input -->
+                <div class="input-field col s12">
+                    <input id="recipe_name" value="{{ recipe.recipe_name }}" name="recipe_name" type="text"
+                        class="validate" required>
+                    <label for="recipe_name">Recipe Name</label>
+                </div>
+                <!-- Description Input -->
+                <div class="input-field col s12">
+                    <textarea id="recipe_description" name="recipe_description" class="materialize-textarea"
+                        required>{{ recipe.recipe_description }}</textarea>
+                    <label for="recipe_description">Description</label>
+                </div>
+                <!-- Cuisine Input -->
+                <div class="input-field col s12 m6">
+                    <select id="cuisine_type" name="cuisine_type">
+                        <option value="" disabled></option>
+                        <!-- loop and display options from db -->
+                        {% for cuisines in cuisine %}
+                        {% if cuisines.cuisine_type == recipe.cuisine_type %}
+                        <option value="{{ cuisines.cuisine_type }}" selected>{{ cuisines.cuisine_type}}</option>
+                        {% else %}
+                        <option value="{{ cuisines.cuisine_type }}">{{ cuisines.cuisine_type }}</option>
+                        {% endif %}
                         {% endfor %}
-                    <div class="new_ingredient"></div>
-                    <!-- Utensils Input -->
-                        {% for tools in recipe.recipe_tools %}
-                        <!-- loop and display individual utensils -->
-                            <div class="input-field col s12">
-                                <input id="recipe_tools-{{ loop.index }}" value="{{ tools }}" name="recipe_tools"
-                                    type="text" class="validate" required>
-                                <label for="recipe_tools-{{ loop.index }}">Utensils</label>
-                                <!-- loop index to avoid id duplication -->
-                                {% if loop.index == 1 %}
-                                    <button class="btn add_utensil" type="button">+</button>
-                                {% else %}
-                                    <button class="btn delete_utensil" type="button">-</button>
-                                {% endif %}
-                            </div>
+                    </select>
+                    <label for="cuisine_type">Cuisine</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <select id="recipe_type" name="recipe_type">
+                        <option value="" disabled></option>
+                        <!-- loop and display options from db -->
+                        {% for category in categories %}
+                        {% if category.recipe_type == recipe.recipe_type %}
+                        <option value="{{ category.recipe_type }}" selected>{{ category.recipe_type }}</option>
+                        {% else %}
+                        <option value="{{ category.recipe_type }}">{{ category.recipe_type }}</option>
+                        {% endif %}
                         {% endfor %}
-                    <div class="new_utensil"></div>
-                    <!-- Time Input -->
-                    <div class="input-field col s12 m6">
-                        <input id="recipe_time" value="{{ recipe.recipe_time }}" name="recipe_time" type="text"
-                            class="validate">
-                        <label for="recipe_time">Time Required</label>
-                    </div>
-                    <!-- Allergens -->
-                   <div class="input-field col s12 m6">
-                       <input id="allergens" name="allergens" type="text" value="{{ recipe.allergens }}"
-                           class="validate" required>
-                       <label for="allergens">Allergens</label>
-                   </div>
-                    <!-- Instruction Input -->
-                    {% for instructions in recipe.recipe_instructions %}
-                    <!-- loop and display individual instructions -->
-                        <div class="input-field col s12">
-                            <input id="recipe_instructions-{{ loop.index }}" value="{{ instructions }}" name="recipe_instructions"
-                                class="required" type="text">
-                            <label for="recipe_instructions-{{ loop.index }}">Instructions</label>
-                            <!-- loop index to avoid id duplication -->
-                            {% if loop.index == 1 %}
-                                <button class="btn add_instruction" type="button">+</button>
-                            {% else %}
-                                <button class="btn delete_instruction" type="button">-</button>
-                            {% endif %}
-                        </div>
-                    {% endfor %}
-                    <div class="new_instruction"></div>
+                    </select>
+                    <label for="recipe_type">Recipe Type</label>
+                </div>
+                <!-- Ingredients Input -->
+                {% for ingredient in recipe.recipe_ingredients %}
+                <!-- loop and display individual ingredients -->
+                <div class="input-field col s12 m6">
+                    <input id="recipe_ingredients-{{ loop.index }}" name="recipe_ingredients" type="text"
+                        class="validate" value="{{ ingredient }}" required>
+                    <label for="recipe_ingredients-{{ loop.index }}">Ingredients</label>
+                    <!-- loop index to avoid id duplication -->
+                    {% if loop.index == 1 %}
+                    <button class="btn add_ingredient" type="button">+</button>
+                    {% else %}
+                    <button class="btn delete_ingredient" type="button"> - </button>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <div class="new_ingredient"></div>
+                <!-- Utensils Input -->
+                {% for tools in recipe.recipe_tools %}
+                <!-- loop and display individual utensils -->
+                <div class="input-field col s12">
+                    <input id="recipe_tools-{{ loop.index }}" value="{{ tools }}" name="recipe_tools" type="text"
+                        class="validate" required>
+                    <label for="recipe_tools-{{ loop.index }}">Utensils</label>
+                    <!-- loop index to avoid id duplication -->
+                    {% if loop.index == 1 %}
+                    <button class="btn add_utensil" type="button">+</button>
+                    {% else %}
+                    <button class="btn delete_utensil" type="button">-</button>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <div class="new_utensil"></div>
+                <!-- Time Input -->
+                <div class="input-field col s12 m6">
+                    <input id="recipe_time" value="{{ recipe.recipe_time }}" name="recipe_time" type="text"
+                        class="validate">
+                    <label for="recipe_time">Time Required</label>
+                </div>
+                <!-- Allergens -->
+                <div class="input-field col s12 m6">
+                    <input id="allergens" name="allergens" type="text" value="{{ recipe.allergens }}" class="validate"
+                        required>
+                    <label for="allergens">Allergens</label>
+                </div>
+                <!-- Instruction Input -->
+                {% for instructions in recipe.recipe_instructions %}
+                <!-- loop and display individual instructions -->
+                <div class="input-field col s12">
+                    <input id="recipe_instructions-{{ loop.index }}" value="{{ instructions }}"
+                        name="recipe_instructions" class="required" type="text">
+                    <label for="recipe_instructions-{{ loop.index }}">Instructions</label>
+                    <!-- loop index to avoid id duplication -->
+                    {% if loop.index == 1 %}
+                    <button class="btn add_instruction" type="button">+</button>
+                    {% else %}
+                    <button class="btn delete_instruction" type="button">-</button>
+                    {% endif %}
+                </div>
+                {% endfor %}
+                <div class="new_instruction"></div>
 
-                    <div class="input-field col s12">
-                        <label for="image_url" value="{{ recipe.image_url }}">upload image</label>
-                        <input id="image_url" name="image_url" type="text" class="validate">
-                    </div>
-                    <!-- Edit Button -->
+                <div class="input-field col s12">
+                    <label for="image_url" value="{{ recipe.image_url }}">upload image</label>
+                    <input id="image_url" name="image_url" type="text" class="validate">
                 </div>
-                <div class="row">
-                    <div class="col s12 center-align">
-                        <button type="submit"
-                            class="btn-large grey darken-4 text-shadow letter-space register">
-                            Edit Recipe
-                        </button>
-                        <!-- Cancel Edit Button -->
-                        <a href="{{ url_for('get_recipes') }}"
-                            class="btn-large red accent-3 text-shadow cancel">Cancel</a>
-                    </div>
+                <!-- Edit Button -->
+            </div>
+            <div class="row">
+                <div class="col s12 center-align">
+                    <button type="submit" class="btn-large grey darken-4 text-shadow letter-space register">
+                        Edit Recipe
+                    </button>
+                    <!-- Cancel Edit Button -->
+                    <a href="{{ url_for('get_recipes') }}" class="btn-large red accent-3 text-shadow cancel">Cancel</a>
                 </div>
-            </form>
-        </div>
+            </div>
+        </form>
     </div>
-    <div class="parallax-container">
-        <div class="parallax"><img src="/static/images/spaghetti-carbonara.jpg"></div>
-    </div>
+</div>
+<div class="parallax-container">
+    <div class="parallax"><img src="/static/images/spaghetti-carbonara.jpg"></div>
+</div>
 
 {% endblock %}

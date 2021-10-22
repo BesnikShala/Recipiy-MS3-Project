@@ -1,51 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+        type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
-    
+
     {% block styles %}
     {% endblock %}
     <title>Recipiy</title>
 </head>
+
 <body>
     <!-- navbar -->
     <header>
-          <nav class="nav-extended text-shadow white nav-margin">
-              <div class="nav-wrapper">
-                  <a href="{{ url_for('get_recipes') }}" class="brand-logo">Recipiy</a>
-                  <a href="#" data-target="mobile-demo" class="sidenav-trigger right bars-icon"><i
-                          class="fas fa-bars"></i></a>
-                  <ul class="right hide-on-med-and-down">
-                      <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
-                      {% if session.user %}
-                        <li><a href="{{ url_for('my_recipes', username=session['user']) }}">My Recipes</a></li>
-                        <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
-                        <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-                      {% else %}
-                        <li><a href="{{ url_for('login') }}">Log In</a></li>
-                        <li><a class="modal-trigger" href="{{ url_for('register') }}">Register</a></li>
-                      {% endif %}
-                      
-                  </ul>
-              </div>
-          </nav>
+        <nav class="nav-extended text-shadow white nav-margin">
+            <div class="nav-wrapper">
+                <a href="{{ url_for('get_recipes') }}" class="brand-logo">Recipiy</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger right bars-icon"><i
+                        class="fas fa-bars"></i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+                    {% if session.user %}
+                    <li><a href="{{ url_for('my_recipes', username=session['user']) }}">My Recipes</a></li>
+                    <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
+                    <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+                    {% else %}
+                    <li><a href="{{ url_for('login') }}">Log In</a></li>
+                    <li><a class="modal-trigger" href="{{ url_for('register') }}">Register</a></li>
+                    {% endif %}
+
+                </ul>
+            </div>
+        </nav>
         <!-- mobile navbar -->
-          <ul class="sidenav" id="mobile-demo">
-              <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
-              {% if session.user %}
-                <li><a href="{{ url_for('my_recipes', username=session['user']) }}">My Recipes</a></li>
-                <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
-                <li><a href="{{ url_for('logout') }}">Log Out</a></li>
-              {% else %}
-                <li><a href="{{ url_for('login') }}">Log In</a></li>
-                <li><a class="modal-trigger" href="{{ url_for('register') }}">Register</a></li>
-              {% endif %}
-          </ul>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="{{ url_for('get_recipes') }}">Home</a></li>
+            {% if session.user %}
+            <li><a href="{{ url_for('my_recipes', username=session['user']) }}">My Recipes</a></li>
+            <li><a href="{{ url_for('add_recipe') }}">Add Recipe</a></li>
+            <li><a href="{{ url_for('logout') }}">Log Out</a></li>
+            {% else %}
+            <li><a href="{{ url_for('login') }}">Log In</a></li>
+            <li><a class="modal-trigger" href="{{ url_for('register') }}">Register</a></li>
+            {% endif %}
+        </ul>
     </header>
 
     <section>
@@ -53,13 +56,13 @@
         <div class="row margin-top">
             <div class="col s12 m6 offset-m3">
                 {% with flashes = get_flashed_messages() %}
-                    {% if flashes %}
-                        {% for flash in flashes %}
-                            <div class="row flashes center-align">
-                                <h5 class="col m6 offset-m3 center-align">{{ flash }}</h5>
-                            </div>
-                        {% endfor %}
-                    {% endif %}
+                {% if flashes %}
+                {% for flash in flashes %}
+                <div class="row flashes center-align">
+                    <h5 class="col m6 offset-m3 center-align">{{ flash }}</h5>
+                </div>
+                {% endfor %}
+                {% endif %}
                 {% endwith %}
             </div>
         </div>
@@ -81,13 +84,14 @@
                     <ul class="footer-links">
                         <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a></li>
                         <li><a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
-                        <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                        <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                        </li>
                     </ul>
                 </div>
             </div>
         </div>
     </footer>
-    
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -95,4 +99,5 @@
     {% block scripts %}
     {% endblock %}
 </body>
+
 </html>

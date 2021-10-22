@@ -372,7 +372,7 @@ the bottom of the form to post the change or 'CANCEL' to cancel the change. They
         
         * A user can whilst viewing their recipe on the view recipe page, click on the red 'DELETE' button to delete their recipe. Once this is done then the recipe is deleted and they are notified with a flash message they have successfully deleted their recipe. They are then directed to the home page where the deleted recipe card will not be showing anymore. 
 
-<img src="./documentation/testing-images/feature-testing6.jpeg">
+<img src="./documentation/testing-images/feature-testing8.jpeg">
 
 * **Search Recipe**
 

@@ -1,97 +1,97 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <section class="center-align">
-        <h3>Add Your Own Recipe</h3>
-        <P>Here you can add your very own recipe using our form below. Please enter accurate
-            details and ensure the instructions and ingredients are correct<br>
-            Don't forget to list any possible alergens</P>
-    </section>
-    <!-- parallax container -->
-    <div class="parallax-container">
-        <div class="parallax"><img src="{{ url_for('static', filename='images/salad.jpeg') }}"></div>
-    </div>
-    <div class="section white">
-        <div class="row container">
-            <form class="col s12 m8 offset-m2 form" method="POST" action="{{ url_for('add_recipe') }}">
-                <div class="row" id="form">
-                    <!-- Recipe Name Input -->
-                    <div class="input-field col s12">
-                        <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
-                        <label for="recipe_name">Recipe Name</label>
-                    </div>
-                    <!-- Description Input -->
-                    <div class="input-field col s12">
-                        <textarea id="recipe_description" name="recipe_description" class="materialize-textarea"
-                            required></textarea>
-                        <label for="recipe_description">Description</label>
-                    </div>
-                    <!-- Cuisine Input -->
-                    <div class="input-field col s12 m6">
-                        <select id="cuisine_type" name="cuisine_type" required>
-                            <option value="" disabled selected></option>
-                            {% for cuisines in cuisine %}
-                            <option value="{{ cuisines.cuisine_type }}">{{ cuisines.cuisine_type }}</option>
-                            {% endfor %}
-                        </select>
-                        <label for="cuisine_type">Cuisine</label>
-                    </div>
-                    <div class="input-field col s12 m6">
-                        <select id="recipe_type" name="recipe_type" required>
-                            <option value="" disabled selected></option>
-                            {% for category in categories %}
-                            <option value="{{ category.recipe_type }}">{{ category.recipe_type }}</option>
-                            {% endfor %}
-                        </select>
-                        <label for="recipe_type">Recipe Type</label>
-                    </div>
-                    <!-- Ingredients Input -->
-                    <div class="input-field col s12 ">
-                        <input id="recipe_ingredients add_ing" name="recipe_ingredients" type="text" class="validate" required>
-                        <label for="recipe_ingredients">Ingredients</label>
-                        <button class="btn add_ingredient" type="button">+</button>
-                    </div>
-                    <div class="new_ingredient"></div>
-                    <!-- Utensils Input -->
-                    <div class="input-field col s12">
-                        <input id="recipe_tools" name="recipe_tools" type="text" class="validate" required>
-                        <label for="recipe_tools">Utensils</label>
-                        <button class="btn add_utensil" type="button">+</button>
-                    </div>
-                    <div class="new_utensil"></div>
-                    <!-- Time Input -->
-                   <div class="input-field col s12 m6">
-                        <input id="recipe_time" name="recipe_time" type="text" class="validate" required>
-                        <label for="recipe_time">Time Required</label>
-                    </div>
-                    <!-- Allergens -->
-                    <div class="input-field col s12 m6">
-                        <input id="allergens" name="allergens" type="text" class="validate" required>
-                        <label for="allergens">Allergens</label>
-                    </div>
-                    <!-- Instruction Input -->
-                    <div class="input-field col s12">
-                        <input id="recipe_instructions" name="recipe_instructions" type="text" class="validate"
-                            required>
-                        <label for="recipe_instructions">Instructions</label>
-                        <button class="btn add_instruction" type="button">+</button>
-                    </div>
-                    <div class="new_instruction"></div>
-                    <div class="input-field col s12">
-                        <label for="image_url">upload image</label>
-                        <input id="image_url" name="image_url" type="text" class="validate">
-                        <p>Please paste images address/url to upload an image of your choice</p>
-                    </div>
-                    <!-- Submit Button -->
-                    <button type="submit" class="col s12 btn-large grey darken-4 text-shadow letter-space register">
-                        Submit
-                    </button>
+<section class="center-align">
+    <h3>Add Your Own Recipe</h3>
+    <P>Here you can add your very own recipe using our form below. Please enter accurate
+        details and ensure the instructions and ingredients are correct<br>
+        Don't forget to list any possible alergens</P>
+</section>
+<!-- parallax container -->
+<div class="parallax-container">
+    <div class="parallax"><img src="{{ url_for('static', filename='images/salad.jpeg') }}"></div>
+</div>
+<div class="section white">
+    <div class="row container">
+        <form class="col s12 m8 offset-m2 form" method="POST" action="{{ url_for('add_recipe') }}">
+            <div class="row" id="form">
+                <!-- Recipe Name Input -->
+                <div class="input-field col s12">
+                    <input id="recipe_name" name="recipe_name" type="text" class="validate" required>
+                    <label for="recipe_name">Recipe Name</label>
                 </div>
-            </form>
-        </div>
+                <!-- Description Input -->
+                <div class="input-field col s12">
+                    <textarea id="recipe_description" name="recipe_description" class="materialize-textarea"
+                        required></textarea>
+                    <label for="recipe_description">Description</label>
+                </div>
+                <!-- Cuisine Input -->
+                <div class="input-field col s12 m6">
+                    <select id="cuisine_type" name="cuisine_type" required>
+                        <option value="" disabled selected></option>
+                        {% for cuisines in cuisine %}
+                        <option value="{{ cuisines.cuisine_type }}">{{ cuisines.cuisine_type }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="cuisine_type">Cuisine</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <select id="recipe_type" name="recipe_type" required>
+                        <option value="" disabled selected></option>
+                        {% for category in categories %}
+                        <option value="{{ category.recipe_type }}">{{ category.recipe_type }}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="recipe_type">Recipe Type</label>
+                </div>
+                <!-- Ingredients Input -->
+                <div class="input-field col s12 ">
+                    <input id="recipe_ingredients add_ing" name="recipe_ingredients" type="text" class="validate"
+                        required>
+                    <label for="recipe_ingredients">Ingredients</label>
+                    <button class="btn add_ingredient" type="button">+</button>
+                </div>
+                <div class="new_ingredient"></div>
+                <!-- Utensils Input -->
+                <div class="input-field col s12">
+                    <input id="recipe_tools" name="recipe_tools" type="text" class="validate" required>
+                    <label for="recipe_tools">Utensils</label>
+                    <button class="btn add_utensil" type="button">+</button>
+                </div>
+                <div class="new_utensil"></div>
+                <!-- Time Input -->
+                <div class="input-field col s12 m6">
+                    <input id="recipe_time" name="recipe_time" type="text" class="validate" required>
+                    <label for="recipe_time">Time Required</label>
+                </div>
+                <!-- Allergens -->
+                <div class="input-field col s12 m6">
+                    <input id="allergens" name="allergens" type="text" class="validate" required>
+                    <label for="allergens">Allergens</label>
+                </div>
+                <!-- Instruction Input -->
+                <div class="input-field col s12">
+                    <input id="recipe_instructions" name="recipe_instructions" type="text" class="validate" required>
+                    <label for="recipe_instructions">Instructions</label>
+                    <button class="btn add_instruction" type="button">+</button>
+                </div>
+                <div class="new_instruction"></div>
+                <div class="input-field col s12">
+                    <label for="image_url">upload image</label>
+                    <input id="image_url" name="image_url" type="text" class="validate">
+                    <p>Please paste images address/url to upload an image of your choice</p>
+                </div>
+                <!-- Submit Button -->
+                <button type="submit" class="col s12 btn-large grey darken-4 text-shadow letter-space register">
+                    Submit
+                </button>
+            </div>
+        </form>
     </div>
-    <div class="parallax-container">
-        <div class="parallax"><img src="{{ url_for('static', filename='images/spaghetti-carbonara.jpg') }}"></div>
-    </div>
+</div>
+<div class="parallax-container">
+    <div class="parallax"><img src="{{ url_for('static', filename='images/spaghetti-carbonara.jpg') }}"></div>
+</div>
 
 {% endblock %}
