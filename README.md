@@ -144,7 +144,7 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
 
 * Delete Recipes
 
-    * This feature is only available to the user who created the recipe, there is an option for the user to delete the recipe. 
+    * This feature is only available to the user who created the recipe, there is an option for the user to delete the recipe. They will be prompted via a modal to confirm if they would like to delete the recipe. 
 
 * Search Recipe
 
@@ -156,12 +156,12 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
     * Users have the option to view recipe cards in the home page which display brief information about the recipe. If they want to view the full
     recipe they can click on the link which takes them to a new page whereby they can view the full recipe details and cooking instructions.
 
+* Add Recipe to My Recipes/Favourites
+
+* Users who have logged in will be able to add recipes to their profile page under tab 'My Recipes'. This is to give users the ability to save 
+    a specific and not have to search for it in the main page. They have access to it on their own page and can also remove or view the recipe.
+
 ## Features Left to Implement
-
-* Add Recipes to Favourites/My Recipes
-
-    * Users who have logged in will be able to add recipes to their profile page under tab 'My Recipes'. This is to give users the ability to save 
-    somthingand not have to search for it in the main page. They have access to it on their own page.
 
 * Optional feature of Promotion
 
@@ -368,11 +368,19 @@ the bottom of the form to post the change or 'CANCEL' to cancel the change. They
 
 * **Delete Recipes**
 
-    * This feature is only available to the user who created the recipe, there is an option for the user to delete the recipe. 
+    * This feature is only available to the user who created the recipe, there is an option for the user to delete the recipe. They will be prompted via a modal to confirm if they would like to delete the recipe. 
         
         * A user can whilst viewing their recipe on the view recipe page, click on the red 'DELETE' button to delete their recipe. Once this is done then the recipe is deleted and they are notified with a flash message they have successfully deleted their recipe. They are then directed to the home page where the deleted recipe card will not be showing anymore. 
 
 <img src="./documentation/testing-images/feature-testing8.jpeg">
+
+* **Delete Recipes Prompt**
+
+    * This feature is only available to the user who created the recipe, there is an option for the user to delete the recipe. They will be prompted via a modal to confirm if they would like to delete the recipe. 
+
+        * A user may accidentally click on the delete button and therefore there has to be some security measures to prompt the user to confirm their selection. A modal pop up is there to inform the user they have chosen to delete the recipe, they can then confirm the deletion. 
+
+<img src="./documentation/testing-images/feature-testing11.jpeg">
 
 * **Search Recipe**
 
@@ -383,6 +391,16 @@ the bottom of the form to post the change or 'CANCEL' to cancel the change. They
 
 <img src="./documentation/testing-images/user-story-testing7.jpeg"> 
 
+* **Add-View-Remove Recipes to Favourites/My Recipes**
+
+    * Users who have logged in will be able to add recipes to their profile page under tab 'My Recipes'. This is to give users the ability to save 
+    a specific and not have to search for it in the main page. They have access to it on their own page and can also remove or view the recipe.
+
+        * Users have a button to add the recipe to 'My Recipes' once they are on the view recipe page. They will be greeted with a flash message saying recipe 
+        added to 'My Recipes'. A card of the recipe will appear on their page and the user has the ability to view the recipe and/or remove it.  
+
+<img src="./documentation/testing-images/feature-testing9.jpeg"> 
+<img src="./documentation/testing-images/feature-testing10.jpeg"> 
 ## Deployment
 
 ### Local Deployment
