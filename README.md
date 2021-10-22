@@ -2,6 +2,8 @@
 
 Recipiy is an online recipe site whereby users can view recipes to use freely. They can also sign up and use the features of being able to upload their own recipes or simply just save them to their own personal page for a later date. The aim is for returning customers to be able to use this on many occasions whether it is making a simple lunch or a special dinner. 
 
+<img src="./documentation/testing-images/responsive.jpeg"> 
+
 * [User Experience](#user-experience)
     * [User Stories](#user-stories)
     * [Design](#design)
@@ -547,6 +549,31 @@ variables as shown:
 
 
 ## Credits
+
+### Content
+
+* Much of the starting code has been used from the Task Manager Walkthrough Project. This was to start the application, I have tried to make sure all the code has been altered to show my understanding and not just simply copied. 
+
+* [Materialize](https://materializecss.com/) - Used for html code and javascript functionality such as cards modal and form.
+
+### Media
+
+* [freepik](https://www.freepik.com/) - The two main images used in the main page and the add/edit recipe pages.
+* [unsplash](https://unsplash.com/) - The food images
+* [Fontawesome](https://fontawesome.com/v5.15/icons?d=gallery&p=1) - For the icons used throughout
+
+
+### Code 
+
+* [W3schools](https://github.com/TravelTimN/ci-milestone04-dcd#validators) - For python short cuts and reminders. particularly using the {$and}. 
+* Tim Nelson - Using his code which he himself created to fix and issue with Materialize code which doesnt allow validation on select fields. 
+* Slack - in particular Amy O'Shea for her MS3 planning video and her time to answer my queries before starting the project. 
+
+### Acknowledgements
+
+* Tim Nelson - My Mentor who not only presented the python lessons and walkthrough videos perfectly but was also there to help guide me in our sessions. 
+
+
 
 
 
