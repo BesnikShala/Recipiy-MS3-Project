@@ -31,6 +31,7 @@ def login_required(f):
             return redirect(url_for("login"))
     return wrap
 
+
 # get recipes list form db
 @app.route("/")
 @app.route("/get_recipes")
@@ -51,6 +52,7 @@ def search():
     searcher = request.form.get("searcher")
     recipes = list(mongo.db.recipes.find({"$text": {"$search": searcher}}))
     return render_template("recipes.html", recipes=recipes)
+
 
 # register account
 @app.route("/register", methods=["GET", "POST"])
@@ -82,6 +84,7 @@ def register():
 
     return render_template("register.html")
 
+
 # login to account
 @app.route("/login", methods=["GET", "POST"])
 def login():
@@ -92,12 +95,12 @@ def login():
         if existing_user:
             # make sure hashed password matches entered password
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(
-                        request.form.get("username")))
-                    return redirect(url_for(
-                        "my_recipes", username=session["user"]))
+                    existing_user["password"], request.form.get("password")):
+                        session["user"] = request.form.get("username").lower()
+                        flash("Welcome, {}".format(
+                            request.form.get("username")))
+                        return redirect(url_for(
+                            "my_recipes", username=session["user"]))
             else:
                 flash("Incorrect Username and/or Password")
                 return redirect(url_for("login"))
@@ -116,6 +119,7 @@ def logout():
     flash("You have logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
 
 # add recipe
 @app.route("/add_recipe", methods=["GET", "POST"])
@@ -148,7 +152,11 @@ def add_recipe():
     instruction = mongo.db.recipes.find().sort("recipe_instructions", 1)
     categories = mongo.db.categories.find().sort("recipe_type", 1)
     return render_template(
-        "add_recipe.html", cuisine=cuisine, instruction=instruction, categories=categories)
+        "add_recipe.html",
+        cuisine=cuisine,
+        instruction=instruction,
+        categories=categories)
+
 
 # edit recipe details
 @app.route("/edit_recipe/<recipe_id>", methods=["GET", "POST"])
@@ -212,7 +220,7 @@ def add_favourites(recipe_id):
     recipe_name = "".join(recipe["recipe_name"]),
     recipe_description = "".join(recipe["recipe_description"]),
     image_url = recipe["image_url"]
-    
+
     info = {
         "recipe_id": recipe_id,
         "recipe_name": recipe_name,
@@ -251,7 +259,7 @@ def delete_recipe(recipe_id):
 
 
 # view recipe details
-@app.route("/view_recipe/<recipe_id>") 
+@app.route("/view_recipe/<recipe_id>")
 def view_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     return render_template("view_recipe.html", recipe=recipe)

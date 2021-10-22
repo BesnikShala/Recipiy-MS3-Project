@@ -7,7 +7,7 @@
 </section>
 
 <div class="parallax-container">
-    <div class="parallax"><img src="/static/images/salad.jpeg"></div>
+    <div class="parallax"><img src="{{ url_for('static', filename='images/salad.jpeg') }}" alt="image of salad"></div>
 </div>
 <div class="section white">
     <div class="row container">
@@ -135,7 +135,8 @@
     </div>
 </div>
 <div class="parallax-container">
-    <div class="parallax"><img src="/static/images/spaghetti-carbonara.jpg"></div>
+    <div class="parallax"><img
+            src="{{ url_for('static', filename='images/spaghetti-carbonara.jpeg') }}"></div>
 </div>
 
 {% endblock %}
