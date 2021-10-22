@@ -207,12 +207,8 @@ def add_favourites(recipe_id):
 
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
-    print(username)
-    print(request)
 
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    print(recipe)
     recipe_name = "".join(recipe["recipe_name"]),
     recipe_description = "".join(recipe["recipe_description"]),
     image_url = recipe["image_url"]
@@ -225,17 +221,32 @@ def add_favourites(recipe_id):
         "image_url": image_url
     }
     mongo.db.favourites.insert_one(info)
-    flash("Recipe saved to favourites")
+    flash("Recipe saved to My Recipes")
 
     return redirect(url_for(
         "my_recipes", username=username, recipe_id=recipe_id))
+
+
+@app.route("/remove_favourites/, <recipe_id>")
+def remove_favourites(recipe_id):
+
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    remove = mongo.db.favourites.find_one({"$and": [
+        {"username": session["user"]}, {"recipe_id": recipe_id}]})
+    print(remove)
+    mongo.db.favourites.remove(remove)
+    flash("You have removed a recipe from your profile")
+    return redirect(url_for("my_recipes", username=username))
+
 
 # delete recipe
 @app.route("/delete_recipe/, <recipe_id>")
 @login_required
 def delete_recipe(recipe_id):
     mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
-    flash("You have successfully delteted your recipe")
+    flash("You have successfully deleted your recipe")
     return redirect(url_for("get_recipes"))
 
 
@@ -243,7 +254,6 @@ def delete_recipe(recipe_id):
 @app.route("/view_recipe/<recipe_id>") 
 def view_recipe(recipe_id):
     recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    print(recipe)
     return render_template("view_recipe.html", recipe=recipe)
 
 

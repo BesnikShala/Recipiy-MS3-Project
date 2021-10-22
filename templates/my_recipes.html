@@ -26,6 +26,7 @@
                          <span class="card-title activator grey-text text-darken-4">{{ name }}<i
                                  class="fas fa-plus-square right"></i></span>
                          {% endfor %}
+                         
                      </div>
                      <div class="card-reveal">
                          {% for name in favourite.recipe_name %}
@@ -35,9 +36,12 @@
                          {% for recipe in favourite.recipe_description %}
                          <p>{{ recipe }}</p>
                          {% endfor %}
+                         <a href="{{ url_for('remove_favourites', recipe_id=favourite.recipe_id) }}"
+                             class="btn-small red accent-4">Remove</a>
                      </div>
                  </div>
              </div>
+             
              {% endfor %}
          </div>
      </div>
