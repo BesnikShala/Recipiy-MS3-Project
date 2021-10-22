@@ -311,75 +311,75 @@ Recipiy is an online recipe site whereby users can view recipes to use freely. T
 
 ### Features Testing
 
-#### Register an Account with Recipiy
+* **Register an Account with Recipiy**
 
-    A user can view recipes without creating an account. However they will receive more features if they do so. A user can easily register an 
+    * A user can view recipes without creating an account. However they will receive more features if they do so. A user can easily register an 
     account via the nav-link. The passwords are hashed for security and there is a confirmation process for the passsword to make sure there are
     no spelling mistakes. A flash message will appear if they have correctly registered an account.
-
-* This feature has been tested on all devices and this works as expected. The user is directed to their own page when an account is created.
+       
+        * This feature has been tested on all devices and this works as expected. The user is directed to their own page when an account is created.
         The user is greeted with a flash message which shows they have successfully registered.
 
 <img src="./documentation/testing-images/feature-testing.jpeg">
 
 
-####  Log In and Out of Recipiy 
+* **Log In and Out of Recipiy**
 
-    Once a user has created an account they can log in and out of their account easily. They are notified if they have incorrectly entered a 
+   * Once a user has created an account they can log in and out of their account easily. They are notified if they have incorrectly entered a 
     password/username. The message does not hint whether the username or password is incorrect for anyone trying to hack another user's details.
-
-* The user is directed to the log in page if they have chosen to log out with a flash message to notify them that they have successfully logged out.
+        
+        * The user is directed to the log in page if they have chosen to log out with a flash message to notify them that they have successfully logged out.
 If they log in they will be greeted with their profile page which is that same as shown on the registration testing.
 
 <img src="./documentation/testing-images/feature-testing2.jpeg">
 
 [CRUD] Features Implemented
 
-#### View Recipes
+* **View Recipes**
 
-    Users can view recipes whether they have an account or not. The recipe cards are displayed on the home page for users to view the image, name
+    * Users can view recipes whether they have an account or not. The recipe cards are displayed on the home page for users to view the image, name
     and description. They then have the option to click on view recipe to view the full information on a separate page.
-
-* This feature works well and is very responsive. Users can clealy see the image and title of the food, if they want they can click on the card to reveal 
+        
+        * This feature works well and is very responsive. Users can clealy see the image and title of the food, if they want they can click on the card to reveal 
 recipe description. If the user decides they want to view this full recipe they can click on the link which directs them directly to the view recipe page. 
 
 <img src="./documentation/testing-images/feature-testing3.jpeg"> | <img src="./documentation/testing-images/feature-testing4.jpeg">
 
-#### Add Recipes
+* **Add Recipes**
     
-    Existing users have the option to add their own recipes to the page. This is a feature which would encourage users to register with Recipiy,
+    * Existing users have the option to add their own recipes to the page. This is a feature which would encourage users to register with Recipiy,
     to have the option to upload their own recipes. This can be to store their recipes they may have or simply to share their unqiue recipes with
     others.
-
-* Once a recipe has been added the user will be greeted with a flash message to notify them that they have successfully added a recipe. They will be directed to the view recipe page where they can review their recipe. They will see the controls that the recipe owner sees. 
+        
+        * Once a recipe has been added the user will be greeted with a flash message to notify them that they have successfully added a recipe. They will be directed to the view recipe page where they can review their recipe. They will see the controls that the recipe owner sees. 
 
 <img src="./documentation/testing-images/feature-testing5.jpeg">
 
-####  Update Recipes
+* **Update Recipes**
 
-    An existing user is able to upate their own recipes which they have uploaded. This is to amend any errors or it can be to improve a recipe.
+    * An existing user is able to upate their own recipes which they have uploaded. This is to amend any errors or it can be to improve a recipe.
     Whatever the reason may be this feature is available only to the user who created the recipe, so other users cannot alter any recipe.
-
-* Users can click on the blue 'EDIT' button which will send them to a form. This form will be prefilled with the previous information that the user entered. 
+        
+        * Users can click on the blue 'EDIT' button which will send them to a form. This form will be prefilled with the previous information that the user entered. 
 They can change information or add and remove as they please. Once the user has finished editing the recipe they can then click the 'EDIT RECIPE' button at 
 the bottom of the form to post the change or 'CANCEL' to cancel the change. They will receive a flash message if the recipe is edited. 
 
 <img src="./documentation/testing-images/feature-testing6.jpeg"> | <img src="./documentation/testing-images/feature-testing7.jpeg">
 
-#### Delete Recipes
+* **Delete Recipes**
 
-    This feature is only available to the user who created the recipe, there is an option for the user to delete the recipe. 
-
-* A user can whilst viewing their recipe on the view recipe page, click on the red 'DELETE' button to delete their recipe. Once this is done then the recipe is deleted and they are notified with a flash message they have successfully deleted their recipe. They are then directed to the home page where the deleted recipe card will not be showing anymore. 
+    * This feature is only available to the user who created the recipe, there is an option for the user to delete the recipe. 
+        
+        * A user can whilst viewing their recipe on the view recipe page, click on the red 'DELETE' button to delete their recipe. Once this is done then the recipe is deleted and they are notified with a flash message they have successfully deleted their recipe. They are then directed to the home page where the deleted recipe card will not be showing anymore. 
 
 <img src="./documentation/testing-images/feature-testing6.jpeg">
 
-#### Search Recipe
+* **Search Recipe**
 
-    A search bar on the home page which allows users to search recipes based on keywords within the title or description. I have also made
+    * A search bar on the home page which allows users to search recipes based on keywords within the title or description. I have also made
     ingredients a part of the keywords too if users want to search by ingredient. 
-
-* Users can click on the search bar and type a key word of their choice. The search indexes chosen are for recipe ingredients and and recipe name. If a user cannot find what they are looking for via recipe title they can search via ingredient in order to find somthing similar. 
+        
+        * Users can click on the search bar and type a key word of their choice. The search indexes chosen are for recipe ingredients and and recipe name. If a user cannot find what they are looking for via recipe title they can search via ingredient in order to find somthing similar. 
 
 <img src="./documentation/testing-images/user-story-testing7.jpeg"> 
 
